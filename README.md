@@ -99,7 +99,7 @@ Seed:     42
 Platform: macOS (Apple Silicon)
 ```
 
-## Final Summary: The Story of the Best Improvement
+## Summary: Best Improvements
 
 The central challenge of this project was bridging Ollama's local inference
 API to lm-eval's evaluation framework when the standard scoring path
@@ -134,7 +134,7 @@ triggered more top-20 misses. The soft floor eliminates this failure mode,
 letting the genuine benefit of semantic few-shot priming surface. Full
 ablation in `improve/report.md`.
 
-**What I learned.**
+**Interesting learnings**
 
 1. **The evaluation adapter is a first-class engineering surface.** The
    single largest improvement (+25 pp) came not from prompt engineering or
