@@ -1,4 +1,4 @@
-# MLE Challenge — LLM Systems & Evaluation Pipeline
+# Internal LLM Evaluation Pipeline
 
 End-to-end local LLM evaluation pipeline built on **Ollama** (`llama3:8b`)
 and **lm-evaluation-harness** (v0.4.11).
