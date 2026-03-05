@@ -1,0 +1,12 @@
+{
+  "alias": "hellaswag",
+  "acc,none": 0.58,
+  "acc_stderr,none": 0.04960449637488582,
+  "acc_norm,none": 0.61,
+  "acc_norm_stderr,none": 0.04902071300001973,
+  "_elapsed_sec": 1125.8,
+  "_limit": 100,
+  "_num_fewshot": 0,
+  "_config": "baseline",
+  "_description": "0-shot, stock template, stock hellaswag task"
+}

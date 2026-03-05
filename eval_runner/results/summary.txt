@@ -1,0 +1,17 @@
+========================================================================
+  EVALUATION SUMMARY
+  (auto-generated from all results/*.json files)
+========================================================================
+
+  Task                           Metric            Value     Stderr
+  ------------------------------ ------------ ---------- ----------
+  code_output                    exact_match      0.8000    ±0.2000
+  hellaswag                      acc              0.6000    ±0.2449
+  hellaswag                      acc_norm         1.0000    ±0.0000
+  mmlu                           acc              0.6632    ±0.0274
+  mmlu_humanities                acc              0.6923    ±0.0544
+  mmlu_other                     acc              0.6923    ±0.0596
+  mmlu_social_sciences           acc              0.7500    ±0.0577
+  mmlu_stem                      acc              0.5684    ±0.0488
+
+========================================================================

@@ -1,0 +1,12 @@
+{
+  "alias": "hellaswag",
+  "acc,none": 0.36,
+  "acc_stderr,none": 0.048241815132442176,
+  "acc_norm,none": 0.33,
+  "acc_norm_stderr,none": 0.04725815626252609,
+  "_elapsed_sec": 321.6,
+  "_limit": 100,
+  "_num_fewshot": 10,
+  "_config": "fewshot_random_10",
+  "_description": "10-shot random, stock template"
+}

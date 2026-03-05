@@ -1,0 +1,30 @@
+{"code": "x = 3\ny = x + 7\nprint(y)", "answer": "10"}
+{"code": "print(2 ** 10)", "answer": "1024"}
+{"code": "x = 'hello'\nprint(x[::-1])", "answer": "olleh"}
+{"code": "print(len([1, 2, 3, 4, 5]))", "answer": "5"}
+{"code": "a = [1, 2, 3]\na.append(4)\nprint(a)", "answer": "[1, 2, 3, 4]"}
+{"code": "print(type(3.14).__name__)", "answer": "float"}
+{"code": "x = [1, 2, 3]\ny = x\ny.append(4)\nprint(len(x))", "answer": "4"}
+{"code": "d = {'a': 1, 'b': 2}\nprint(d.get('c', 0))", "answer": "0"}
+{"code": "print(bool(''))", "answer": "False"}
+{"code": "print(list(range(0, 10, 3)))", "answer": "[0, 3, 6, 9]"}
+{"code": "s = 'abcabc'\nprint(s.count('a'))", "answer": "2"}
+{"code": "x = [4, 1, 3, 2]\nx.sort()\nprint(x[0])", "answer": "1"}
+{"code": "print('hello world'.split())", "answer": "['hello', 'world']"}
+{"code": "a, b = 5, 10\na, b = b, a\nprint(a)", "answer": "10"}
+{"code": "print(sum(range(5)))", "answer": "10"}
+{"code": "x = {'a': 1, 'b': 2, 'c': 3}\nprint(sorted(x.keys()))", "answer": "['a', 'b', 'c']"}
+{"code": "def f(n):\n    return n * (n + 1) // 2\nprint(f(10))", "answer": "55"}
+{"code": "x = [i**2 for i in range(5)]\nprint(x)", "answer": "[0, 1, 4, 9, 16]"}
+{"code": "s = 'racecar'\nprint(s == s[::-1])", "answer": "True"}
+{"code": "print(max(3, 1, 4, 1, 5, 9, 2, 6))", "answer": "9"}
+{"code": "x = 17\nprint(x % 5)", "answer": "2"}
+{"code": "print([x for x in range(10) if x % 2 == 0])", "answer": "[0, 2, 4, 6, 8]"}
+{"code": "def fib(n):\n    a, b = 0, 1\n    for _ in range(n):\n        a, b = b, a + b\n    return a\nprint(fib(7))", "answer": "13"}
+{"code": "s = 'hello'\nprint(s.upper().replace('L', 'x'))", "answer": "HExxO"}
+{"code": "x = [1, [2, 3], [4, [5]]]\nprint(len(x))", "answer": "3"}
+{"code": "print(set([1, 2, 2, 3, 3, 3]) == {1, 2, 3})", "answer": "True"}
+{"code": "d = dict(zip('abc', [1, 2, 3]))\nprint(d)", "answer": "{'a': 1, 'b': 2, 'c': 3}"}
+{"code": "x = 'python'\nprint(x[1:4])", "answer": "yth"}
+{"code": "print(all([True, True, False]))", "answer": "False"}
+{"code": "print('-'.join(['a', 'b', 'c']))", "answer": "a-b-c"}

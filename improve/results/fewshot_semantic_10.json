@@ -1,0 +1,12 @@
+{
+  "alias": "hellaswag_fewshot_semantic_10",
+  "acc,none": 0.57,
+  "acc_stderr,none": 0.0497,
+  "acc_norm,none": 0.65,
+  "acc_norm_stderr,none": 0.0479,
+  "_elapsed_sec": 1304.3,
+  "_limit": 100,
+  "_num_fewshot": 0,
+  "_config": "fewshot_semantic_10",
+  "_description": "10-shot semantic (TF-IDF), stock template"
+}
