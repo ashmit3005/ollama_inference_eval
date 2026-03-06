@@ -38,9 +38,12 @@ Scoring strategy — loglikelihood:
   _gen1_cache, amortizing the most expensive call across all options.
 """
 
+import asyncio
 import logging
+from collections import defaultdict
 from typing import Optional
 
+import aiohttp
 import requests
 from tqdm import tqdm
 
@@ -80,6 +83,7 @@ class OllamaEvalModel(LM):
         batch_size: int = 1,
         max_score_tokens: int = 50,
         scoring_mode: str = "soft_floor",
+        parallel_choices: bool = False,
         **kwargs,
     ):
         super().__init__()
@@ -93,11 +97,13 @@ class OllamaEvalModel(LM):
         self._batch_size = batch_size
         self._max_score_tokens = max_score_tokens
         self.scoring_mode = scoring_mode
+        self.parallel_choices = parallel_choices
         self.session = requests.Session()
         self._gen1_cache: dict[tuple, dict] = {}
         self._client = OllamaClient(base_url=self.base_url, model=self.model)
         self._verify_connection()
         log.info("Scoring mode: %s", self.scoring_mode)
+        log.info("Parallel choices: %s", self.parallel_choices)
 
     def _verify_connection(self) -> None:
         if not self._client.is_healthy():
@@ -150,10 +156,146 @@ class OllamaEvalModel(LM):
         return data
 
     # ------------------------------------------------------------------
+    # Async API: generate 1 token with logprobs (for parallel scoring)
+    # ------------------------------------------------------------------
+
+    async def _async_generate_one(
+        self, session: aiohttp.ClientSession, prompt: str
+    ) -> dict:
+        cache_key = (self.model, self.seed, prompt)
+        if cache_key in self._gen1_cache:
+            return self._gen1_cache[cache_key]
+
+        async with session.post(
+            f"{self.base_url}/api/generate",
+            json={
+                "model": self.model,
+                "prompt": prompt,
+                "stream": False,
+                "raw": True,
+                "logprobs": True,
+                "top_logprobs": self.top_logprobs_k,
+                "options": {
+                    "temperature": 0,
+                    "top_p": 1.0,
+                    "num_predict": 1,
+                    "seed": self.seed,
+                },
+            },
+            timeout=aiohttp.ClientTimeout(total=120),
+        ) as resp:
+            resp.raise_for_status()
+            data = await resp.json()
+            self._gen1_cache[cache_key] = data
+            return data
+
+    async def _async_score_continuation(
+        self, session: aiohttp.ClientSession, context: str, continuation: str
+    ) -> tuple[float, bool]:
+        if not continuation.strip():
+            return (0.0, True)
+
+        total_logprob = 0.0
+        is_greedy = True
+        remaining = continuation
+        current_prompt = context
+        tokens_scored = 0
+        use_soft_floor = self.scoring_mode == "soft_floor"
+
+        while remaining and tokens_scored < self._max_score_tokens:
+            data = await self._async_generate_one(session, current_prompt)
+            logprobs_list = data.get("logprobs", [])
+
+            if not logprobs_list:
+                total_logprob += LOGPROB_FLOOR
+                is_greedy = False
+                break
+
+            token_info = logprobs_list[0]
+            top_probs = token_info.get("top_logprobs", [token_info])
+            min_lp = min(tp["logprob"] for tp in top_probs) if top_probs else LOGPROB_FLOOR
+            soft_floor = min_lp - 1.0
+
+            best_token_text: Optional[str] = None
+            best_logprob = soft_floor
+            for tp in top_probs:
+                tok_text = tp["token"]
+                if remaining.startswith(tok_text) and len(tok_text) > 0:
+                    if best_token_text is None or len(tok_text) > len(best_token_text):
+                        best_token_text = tok_text
+                        best_logprob = tp["logprob"]
+
+            if best_token_text is None:
+                if use_soft_floor:
+                    advance = remaining[0]
+                    total_logprob += soft_floor
+                    is_greedy = False
+                    current_prompt += advance
+                    remaining = remaining[len(advance):]
+                    tokens_scored += 1
+                    continue
+                else:
+                    total_logprob += LOGPROB_FLOOR
+                    is_greedy = False
+                    break
+
+            greedy_token = top_probs[0]["token"]
+            if greedy_token != best_token_text:
+                is_greedy = False
+
+            total_logprob += best_logprob
+            current_prompt += best_token_text
+            remaining = remaining[len(best_token_text):]
+            tokens_scored += 1
+
+        return (total_logprob, is_greedy)
+
+    async def _score_group_parallel(
+        self,
+        session: aiohttp.ClientSession,
+        group: list[tuple[int, str, str]],
+    ) -> list[tuple[int, tuple[float, bool]]]:
+        """Score a group of (index, context, continuation) concurrently."""
+        tasks = [
+            self._async_score_continuation(session, ctx, cont)
+            for _, ctx, cont in group
+        ]
+        scores = await asyncio.gather(*tasks)
+        return [(idx, score) for (idx, _, _), score in zip(group, scores)]
+
+    def _run_parallel_loglikelihood(
+        self, requests_list
+    ) -> list[tuple[float, bool]]:
+        """Group requests by context, score each group's choices in parallel."""
+        groups: dict[str, list[tuple[int, str, str]]] = defaultdict(list)
+        for i, req in enumerate(requests_list):
+            context, continuation = req.args
+            groups[context].append((i, context, continuation))
+
+        results_map: dict[int, tuple[float, bool]] = {}
+        pbar = tqdm(total=len(requests_list), desc="loglikelihood(parallel)")
+
+        async def _run():
+            connector = aiohttp.TCPConnector(limit=8)
+            async with aiohttp.ClientSession(connector=connector) as session:
+                for context, group in groups.items():
+                    scored = await self._score_group_parallel(session, group)
+                    for idx, score in scored:
+                        results_map[idx] = score
+                    pbar.update(len(group))
+
+        asyncio.run(_run())
+        pbar.close()
+        return [results_map[i] for i in range(len(requests_list))]
+
+    # ------------------------------------------------------------------
     # loglikelihood  (context, continuation) → (logprob, is_greedy)
     # ------------------------------------------------------------------
 
     def loglikelihood(self, requests_list) -> list[tuple[float, bool]]:
+        if self.parallel_choices:
+            return self._run_parallel_loglikelihood(requests_list)
+
         results = []
         for req in tqdm(requests_list, desc="loglikelihood"):
             context, continuation = req.args

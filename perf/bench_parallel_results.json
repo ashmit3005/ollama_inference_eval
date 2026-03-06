@@ -1,0 +1,20 @@
+{
+  "sequential": {
+    "mode": "sequential",
+    "limit": 10,
+    "acc": 0.4,
+    "acc_norm": 0.6,
+    "elapsed_sec": 100.3,
+    "avg_sec_per_question": 10.03
+  },
+  "parallel": {
+    "mode": "parallel",
+    "limit": 10,
+    "acc": 0.4,
+    "acc_norm": 0.6,
+    "elapsed_sec": 83.5,
+    "avg_sec_per_question": 8.35
+  },
+  "speedup": 1.2,
+  "accuracy_match": true
+}
