@@ -157,6 +157,7 @@ def run_config(
     num_fewshot: int,
     limit: int | None,
     use_custom_tasks: bool = False,
+    scoring_mode: str = "soft_floor",
 ) -> dict:
     """Run a single evaluation configuration and return results."""
     import eval_runner.model  # noqa: F401
@@ -169,7 +170,7 @@ def run_config(
         include_paths.append(str(TASKS_DIR))
 
     task_manager = TaskManager(include_path=include_paths)
-    lm = OllamaEvalModel(seed=SEED)
+    lm = OllamaEvalModel(seed=SEED, scoring_mode=scoring_mode)
 
     t0 = time.time()
     results = simple_evaluate(
@@ -248,6 +249,9 @@ def main():
                         help="Config names to run, or 'all'")
     parser.add_argument("--model", default=DEFAULT_MODEL)
     parser.add_argument("--base-url", default=f"http://{DEFAULT_HOST}:{DEFAULT_PORT}")
+    parser.add_argument("--scoring-mode", choices=["soft_floor", "hard_floor"],
+                        default="soft_floor",
+                        help="Scoring strategy: soft_floor (Part E) or hard_floor (Part B)")
     args = parser.parse_args()
 
     os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -312,6 +316,7 @@ def main():
             num_fewshot=cfg["num_fewshot"],
             limit=args.limit if not cfg.get("custom") else None,
             use_custom_tasks=cfg.get("custom", False),
+            scoring_mode=args.scoring_mode,
         )
 
         result["_config"] = name

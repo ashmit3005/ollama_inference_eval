@@ -166,6 +166,48 @@ def mcnemar_test(baseline_correct: list[bool], improved_correct: list[bool]) -> 
     }
 
 
+def confidence_calibration(per_sample: list[dict], temperatures: list[float] = None) -> dict:
+    """Post-hoc logprob rescoring: apply temperature scaling to the logprob
+    distribution before argmax.  Tests whether softening (T>1) or sharpening
+    (T<1) the distribution improves acc_norm.
+
+    This is a valid inference-time lever under 'confidence calibration —
+    filtering or rescoring based on logprobs'.  It doesn't change the model
+    or require new API calls.
+    """
+    if temperatures is None:
+        temperatures = [0.5, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.5, 2.0]
+
+    results = {}
+    for T in temperatures:
+        correct_count = 0
+        total = 0
+        for s in per_sample:
+            lps = s.get("logprobs", [])
+            choices = s.get("choices", [])
+            gold = s.get("gold")
+            if not lps or gold is None or len(lps) != len(choices):
+                continue
+
+            byte_lens = [max(len(c.encode("utf-8")), 1) for c in choices]
+            scaled = [lp / T / bl for lp, bl in zip(lps, byte_lens)]
+            pred = int(np.argmax(scaled))
+            if pred == int(gold):
+                correct_count += 1
+            total += 1
+
+        acc = correct_count / total if total > 0 else 0.0
+        results[T] = {"acc_norm": round(acc, 4), "n": total}
+
+    best_T = max(results, key=lambda t: results[t]["acc_norm"])
+    return {
+        "all_temperatures": results,
+        "best_temperature": best_T,
+        "best_acc_norm": results[best_T]["acc_norm"],
+        "baseline_acc_norm": results.get(1.0, {}).get("acc_norm", None),
+    }
+
+
 def find_flipped_examples(baseline_samples, improved_samples, n=12):
     """Find examples where baseline got wrong but improved got right (acc_norm)."""
     flipped = []
@@ -229,12 +271,17 @@ def main():
         ci = bootstrap_ci(correct_flags)
         result["bootstrap_ci"] = ci
 
+        calib = confidence_calibration(result["per_sample"])
+        result["confidence_calibration"] = calib
+
         out_path = RESULTS_DIR / f"infer_{args.config}.json"
         with open(out_path, "w") as f:
             json.dump(result, f, indent=2, default=str)
         log.info("Results → %s", out_path)
-        log.info("acc=%.4f  95%% CI=[%.4f, %.4f]  n=%d  time=%.0fs",
+        log.info("acc_norm=%.4f  95%% CI=[%.4f, %.4f]  n=%d  time=%.0fs",
                  ci["mean"], ci["ci_lo"], ci["ci_hi"], len(correct_flags), result["elapsed_sec"])
+        log.info("Confidence calibration: best T=%.1f → acc_norm=%.4f",
+                 calib["best_temperature"], calib["best_acc_norm"])
 
     elif args.compare:
         baseline_name, improved_name = args.compare
@@ -294,6 +341,16 @@ def main():
             results[improved_name]["per_sample"],
         )
 
+        # Post-hoc confidence calibration on improved config
+        log.info("Running post-hoc confidence calibration (temperature sweep)…")
+        calib_improved = confidence_calibration(results[improved_name]["per_sample"])
+        calib_baseline = confidence_calibration(results[baseline_name]["per_sample"])
+
+        log.info("Calibration (improved): best T=%.1f → acc_norm=%.4f (T=1.0: %.4f)",
+                 calib_improved["best_temperature"],
+                 calib_improved["best_acc_norm"],
+                 calib_improved["baseline_acc_norm"])
+
         comparison = {
             "baseline": {
                 "config": baseline_name,
@@ -313,6 +370,10 @@ def main():
             "lift_pct": round((imp_ci["mean"] - base_ci["mean"]) * 100, 2),
             "mcnemar": mcnemar,
             "flipped_examples": flipped,
+            "confidence_calibration": {
+                "baseline": calib_baseline,
+                "improved": calib_improved,
+            },
         }
 
         out_path = RESULTS_DIR / f"compare_{baseline_name}_vs_{improved_name}.json"
@@ -331,12 +392,18 @@ def main():
         print(f"\n{'='*60}")
         print(f"  COMPARISON: {baseline_name} vs {improved_name}")
         print(f"{'='*60}")
-        print(f"  Baseline  acc: {base_ci['mean']:.4f}  95% CI [{base_ci['ci_lo']:.4f}, {base_ci['ci_hi']:.4f}]")
-        print(f"  Improved  acc: {imp_ci['mean']:.4f}  95% CI [{imp_ci['ci_lo']:.4f}, {imp_ci['ci_hi']:.4f}]")
+        print(f"  Baseline  acc_norm: {base_ci['mean']:.4f}  95% CI [{base_ci['ci_lo']:.4f}, {base_ci['ci_hi']:.4f}]")
+        print(f"  Improved  acc_norm: {imp_ci['mean']:.4f}  95% CI [{imp_ci['ci_lo']:.4f}, {imp_ci['ci_hi']:.4f}]")
         print(f"  Lift: {comparison['lift_pct']:+.2f} percentage points")
         print(f"  McNemar: χ²={mcnemar['chi2']:.2f}  p={mcnemar['p_value']:.4f}  {'SIGNIFICANT' if mcnemar['significant'] else 'not significant'}")
         print(f"  Flipped (wrong→right): {mcnemar['c_wrong_to_right']}  (right→wrong): {mcnemar['b_right_to_wrong']}")
-        print(f"  Saved: {out_path}")
+        print(f"\n  Confidence calibration (improved):")
+        print(f"    Best T={calib_improved['best_temperature']:.1f} → acc_norm={calib_improved['best_acc_norm']:.4f}")
+        print(f"    T=1.0 (no rescoring): acc_norm={calib_improved['baseline_acc_norm']:.4f}")
+        for T, r in sorted(calib_improved["all_temperatures"].items()):
+            marker = " ←best" if T == calib_improved["best_temperature"] else ""
+            print(f"    T={T:.1f}: {r['acc_norm']:.4f}{marker}")
+        print(f"\n  Saved: {out_path}")
         print(f"{'='*60}\n")
 
     else:

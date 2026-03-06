@@ -1,12 +1,15 @@
 {
-  "alias": "hellaswag_fewshot_semantic_10",
-  "acc,none": 0.57,
-  "acc_stderr,none": 0.0497,
-  "acc_norm,none": 0.65,
-  "acc_norm_stderr,none": 0.0479,
-  "_elapsed_sec": 1304.3,
-  "_limit": 100,
-  "_num_fewshot": 0,
-  "_config": "fewshot_semantic_10",
-  "_description": "10-shot semantic (TF-IDF), stock template"
+  "task": "hellaswag_fewshot_semantic_10",
+  "num_fewshot": 0,
+  "limit": 100,
+  "scoring_mode": "soft_floor",
+  "results": {
+    "acc": 0.54,
+    "acc_stderr": 0.0501,
+    "acc_norm": 0.62,
+    "acc_norm_stderr": 0.0488
+  },
+  "elapsed_sec": 3221.1,
+  "seed": 42,
+  "model": "llama3:8b"
 }

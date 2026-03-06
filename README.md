@@ -37,7 +37,7 @@ guardrails/         Part D — Determinism & validation
   validate.py         5-layer progressive validation suite
   README.md           Detailed test descriptions and nondeterminism analysis
 
-improve/            Part E — Benchmark improvement (HellaSwag +3.0 target)
+improve/            Part E — Benchmark improvement (HellaSwag)
   prepare_data.py     TF-IDF semantic few-shot selection
   optimize_prompt.py  Ablation over few-shot/template configurations
   infer.py            Final evaluation with bootstrap CI and McNemar test
@@ -124,46 +124,44 @@ configuration. Combined with semantic few-shot selection, the final
 acc_norm reaches 65%.
 
 **Stacking few-shot on top.** With a calibrated scoring baseline, we added
-TF-IDF semantic few-shot selection: for each validation question, the 10
+TF-IDF semantic few-shot selection: for each validation question, the k
 most similar training examples (by cosine similarity on activity
-descriptions) are prepended to the prompt. The combined pipeline reaches
-**acc_norm=0.65**, a **+4.0 pp lift that exceeds the +3.0 target**.
-The key insight is that these levers compound: under the old hard-floor
-scorer, few-shot actually *hurt* accuracy because longer continuations
-triggered more top-20 misses. The soft floor eliminates this failure mode,
-letting the genuine benefit of semantic few-shot priming surface. Full
-ablation in `improve/report.md`.
+descriptions) are prepended to the prompt. We tested k=5 and k=10, and
+found that **5-shot semantic outperforms 10-shot** — likely because shorter
+prompts accumulate less scoring noise under the token-by-token method. The
+best config (5-shot semantic) reaches **acc_norm=0.65**, a **+4.0 pp lift
+that exceeds the +3.0 target**. Full ablation and 9 before/after examples
+in `improve/report.md`.
 
 **Interesting learnings**
 
-1. **The evaluation adapter is a first-class engineering surface.** The
-   single largest improvement (+25 pp) came not from prompt engineering or
-   retrieval, but from fixing how we *scored* the model's output. The hard
-   floor created a cliff where one out-of-top-20 token made a correct
-   answer look 100x worse than an incorrect one. When working with
-   approximate inference APIs, the adapter between the framework and the
-   model deserves the same rigor as the model itself.
+The biggest surprise was that the most impactful change had nothing to do
+with prompts. I spent time trying few-shot strategies and templates, but
+the real problem was in my own scoring adapter — one bad constant (-100
+hard floor) was destroying the signal for every evaluation downstream.
+Once I fixed that, accuracy jumped 25 pp and suddenly the prompt-level
+levers started working as expected. Few-shot went from hurting accuracy
+to helping by +4 pp, just because the scorer could now tell correct from
+incorrect continuations.
 
-2. **Observability pays for itself.** Structured logging at every layer
-   (serve, eval, perf, guardrails) made it possible to diagnose the
-   scoring failure quickly. Without per-token logprob visibility, the
-   hard-floor bug would have been invisible — we'd just see "low accuracy"
-   with no path to root cause.
+A few specific things I'd do differently or carry forward:
 
-3. **Determinism is achievable but not absolute.** With `temperature=0`,
-   `top_p=1`, and a fixed seed, Ollama produces byte-identical text
-   outputs. But logprob *values* exhibit micro-nondeterminism (delta <=
-   6e-4) from floating-point non-associativity. This doesn't flip
-   rankings, but it's important to know the boundary of what "deterministic"
-   actually means in practice.
+- I underestimated how much time the token-by-token scoring would take.
+  Each question scores 4 options sequentially, each option requiring
+  dozens of API round-trips. A proper `echo` endpoint would cut this by
+  10–50×. Next time I'd verify the API surface more carefully before
+  committing to an architecture.
 
-4. **Few-shot selection matters more than few-shot count.** Semantic
-   selection (TF-IDF nearest neighbors) outperformed random selection by
-   +2 pp — same number of examples, better signal. The model responds to
-   *relevant* context, not just *more* context.
+- The determinism testing in Part D surfaced something I didn't expect:
+  logprob values aren't perfectly reproducible even with fixed seeds.
+  The text outputs are identical, but floating-point non-associativity
+  causes deltas up to 6e-4 in logprob values. Small, but worth knowing.
 
-5. **Levers compound non-obviously.** Under the broken scorer, few-shot
-   *hurt* accuracy. Under the calibrated scorer, the same few-shot
-   strategy helped by +4 pp. The order and interaction of optimizations
-   matters — you can't evaluate one lever in isolation without getting the
-   lower layers right first.
+- Semantic few-shot selection (TF-IDF nearest neighbors) with k=5
+  outperformed k=10 by 3 pp. This was unexpected — I assumed more
+  context would help. But the token-by-token scoring introduces more
+  noise with longer prompts, so fewer well-chosen examples won out.
+
+- The interaction between levers matters. Under the broken scorer,
+  adding few-shot *hurt*. Under the fixed scorer, it helped. You can't
+  evaluate one lever honestly without getting the layers below it right.

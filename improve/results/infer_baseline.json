@@ -1,0 +1,2220 @@
+{
+  "task_results": {
+    "alias": "hellaswag",
+    "acc,none": 0.58,
+    "acc_stderr,none": 0.04960449637488582,
+    "acc_norm,none": 0.61,
+    "acc_norm_stderr,none": 0.04902071300001973
+  },
+  "per_sample": [
+    {
+      "idx": 0,
+      "query": "Roof shingle removal: A man is sitting on a roof. He",
+      "choices": [
+        "is using wrap to wrap a pair of skis.",
+        "is ripping level tiles off.",
+        "is holding a rubik's cube.",
+        "starts pulling up roofing on a roof."
+      ],
+      "gold": 3,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -102.0399,
+        -54.8072,
+        -40.4503,
+        -84.2075
+      ],
+      "activity": "Roof shingle removal"
+    },
+    {
+      "idx": 1,
+      "query": "Clean and jerk: A lady walks to a barbell. She bends down and grabs the pole. The lady",
+      "choices": [
+        "swings and lands in her arms.",
+        "pulls the barbell forward.",
+        "pulls a rope attached to the barbell.",
+        "stands and lifts the weight over her head."
+      ],
+      "gold": 3,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -100.6372,
+        -13.5638,
+        -21.2802,
+        -15.0901
+      ],
+      "activity": "Clean and jerk"
+    },
+    {
+      "idx": 2,
+      "query": "Canoeing: Two women in a child are shown in a canoe while a man pulls the canoe while standing in the water, with other individuals visible in the background. The child and a different man",
+      "choices": [
+        "are then shown paddling down a river in a boat while a woman talks.",
+        "are driving the canoe, they go down the river flowing side to side.",
+        "sit in a canoe while the man paddles.",
+        "walking go down the rapids, while the man in his helicopter almost falls and goes out of canoehood."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -92.8812,
+        -162.9681,
+        -23.8429,
+        -260.0327
+      ],
+      "activity": "Canoeing"
+    },
+    {
+      "idx": 3,
+      "query": "High jump: A boy is running down a track. The boy",
+      "choices": [
+        "runs into a car.",
+        "gets in a mat.",
+        "lifts his body above the height of a pole.",
+        "stands on his hands and springs."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -49.3291,
+        -65.9231,
+        -47.8807,
+        -100.7938
+      ],
+      "activity": "High jump"
+    },
+    {
+      "idx": 4,
+      "query": "High jump: The boy lifts his body above the height of a pole. The boy lands on his back on to a red mat. The boy",
+      "choices": [
+        "turns his body around on the mat.",
+        "gets up from the mat.",
+        "continues to lift his body over the pole.",
+        "wiggles out of the mat."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -49.2421,
+        -7.8027,
+        -61.5505,
+        -24.4627
+      ],
+      "activity": "High jump"
+    },
+    {
+      "idx": 5,
+      "query": "High jump: The boy lands on his back on to a red mat. The boy gets up from the mat. The boy",
+      "choices": [
+        "starts doing spins.",
+        "celebrates by clapping and flexing both arms.",
+        "is dancing on the mat.",
+        "does jump jacks on his stick."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -52.631,
+        -63.5821,
+        -44.1933,
+        -66.1225
+      ],
+      "activity": "High jump"
+    },
+    {
+      "idx": 6,
+      "query": "Playing harmonica: A man is standing in front of a camera. He starts playing a harmonica for the camera. He",
+      "choices": [
+        "begins to play the harmonica with his body while looking at the camera.",
+        "seems to be singing while playing the harmonica.",
+        "rocks back and forth to the music as he goes.",
+        "painted a fence in front of the camera."
+      ],
+      "gold": 2,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -118.7454,
+        -31.1512,
+        -58.6474,
+        -102.7395
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 7,
+      "query": "Sumo: A cartoon animation video is shown with people wandering around and rockets being shot. Two men",
+      "choices": [
+        "fight robots of evil and ends with a to be continued.",
+        "are then shown in closeups shooting a shot put.",
+        "push a child in a speedboat in the water.",
+        "look in the cameraman's eye and smile."
+      ],
+      "gold": 0,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -142.7286,
+        -137.9494,
+        -119.069,
+        -86.8671
+      ],
+      "activity": "Sumo"
+    },
+    {
+      "idx": 8,
+      "query": "Sharpening knives: A man is holding a pocket knife while sitting on some rocks in the wilderness. Then he",
+      "choices": [
+        "opens a can of oil put oil on the knife, and puts oil on a knife and press it through a can filled with oil then cuts several pieces from the sandwiches.",
+        "takes a small stone from the flowing river and smashes it on another stone.",
+        "uses the knife to shave his leg.",
+        "sand the rocks and tops them by using strong pressure."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -248.804,
+        -97.4929,
+        -15.8655,
+        -182.8063
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 9,
+      "query": "Sharpening knives: Then he takes a small stone from the flowing river and smashes it on another stone. He starts to crush the small stone to smaller pieces. He",
+      "choices": [
+        "cuts the center stone in half and blow it on to make it bigger.",
+        "grind it hard to make the pieces smaller.",
+        "eventually brings it back into view and adds it to the smaller ones to make a small triangular shaped piece.",
+        "starts to party with them and throw the pieces by hand while they celebrate."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -136.8411,
+        -76.6041,
+        -228.9744,
+        -218.6175
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 10,
+      "query": "Sharpening knives: Then he takes a piece of bark and rubs the powered stone pieces onto it. The stone particles stick to the wet piece of wood. He",
+      "choices": [
+        "uses a small brush to polish one of the stone pieces.",
+        "then uses a strip of sealing tape to seal the board and then smooths the bottom of the board.",
+        "walks towards the camera.",
+        "then takes the knife and sharpens it against the wood piece."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -68.382,
+        -238.1903,
+        -139.7994,
+        -17.6305
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 11,
+      "query": "Sharpening knives: The stone particles stick to the wet piece of wood. He then takes the knife and sharpens it against the wood piece. He",
+      "choices": [
+        "then cuts off the excess hair of the wood.",
+        "scrapes the wood with a broom in the cutting tool used in sharpening the instrument.",
+        "writes on the board again.",
+        "then notices a little black and green poisonous frog sitting next to him."
+      ],
+      "gold": 3,
+      "pred_acc": 2,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -97.5984,
+        -239.9146,
+        -79.4901,
+        -175.5504
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 12,
+      "query": "Sharpening knives: He then takes the knife and sharpens it against the wood piece. He then notices a little black and green poisonous frog sitting next to him. The frog",
+      "choices": [
+        "eventually gets to get up and marches out of the room waving its body about.",
+        "then starts to get up from the chair and begins walking towards the camera.",
+        "then escapes and jumps away.",
+        "is acting crazy and attacking him while he is cooking."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -251.8531,
+        -72.25,
+        -45.0543,
+        -148.4252
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 13,
+      "query": "Sharpening knives: He then notices a little black and green poisonous frog sitting next to him. The frog then escapes and jumps away. He",
+      "choices": [
+        "sits and hugs another man and also adjusts his camera.",
+        "then sits there staring at his text machine as if he has actually been given a gift from god.",
+        "explains how the frog secretes a poisonous fluid that can be extremely harmful.",
+        "takes the frog on his hand and tickles the back of it."
+      ],
+      "gold": 2,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -197.624,
+        -178.3131,
+        -103.2711,
+        -60.4212
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 14,
+      "query": "Playing bagpipes: A person is playing bagpipes out in a park. A man and two boys watching from a far. The camera",
+      "choices": [
+        "shoots areas all around the park while the bagpipes play.",
+        "is covered to the boy that is playing there.",
+        "then goes black and we see a black opening scene.",
+        "watching the boy and boy as they play a game of drums."
+      ],
+      "gold": 0,
+      "pred_acc": 1,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -93.0644,
+        -89.7713,
+        -143.912,
+        -121.1857
+      ],
+      "activity": "Playing bagpipes"
+    },
+    {
+      "idx": 15,
+      "query": "Playing water polo: Two people are seen passing a ball back and fourth in a pool and leads into one speaking to the camera. The man",
+      "choices": [
+        "dips the ball and walks back with the boy and pours detergent into a cup again.",
+        "then throws the ball into the pool and begins running around with a sail in his hand while a group of men watch.",
+        "then takes a drink having a conversation with another man and another man leads into him throwing balls in the water and laughing to the camera.",
+        "demonstrates how to properly throw the ball with his hands while still speaking to the camera."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -226.9652,
+        -142.1864,
+        -215.9033,
+        -135.2336
+      ],
+      "activity": "Playing water polo"
+    },
+    {
+      "idx": 16,
+      "query": "Having an ice cream: A woman is sitting at a table in a fast food restaurant while eating. She continually speaks to nobody as she eats. She",
+      "choices": [
+        "is then seen sitting alone as she eats a cold brown ice cream.",
+        "pauses in the process of eating to enjoy her food.",
+        "stands up and grabs her purse, continuing to talk and laugh as she leaves.",
+        "picks up another chocolate bar and chews it as she talks."
+      ],
+      "gold": 2,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -133.2256,
+        -75.3476,
+        -146.3092,
+        -117.1007
+      ],
+      "activity": "Having an ice cream"
+    },
+    {
+      "idx": 17,
+      "query": "Cheerleading: A group of cheerleaders run onto a stage before a cheering audience. They",
+      "choices": [
+        "get into formation, then begin dancing and flipping as male cheerleaders join them.",
+        "perform a cheer routine before the girls, along with makeup artists, spread out and pose.",
+        "take turns jumping on each other like they are performing karate.",
+        "are then shown performing the type of cheerleading dance, using batons and pole vaults."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -85.8723,
+        -173.7617,
+        -94.0075,
+        -171.1909
+      ],
+      "activity": "Cheerleading"
+    },
+    {
+      "idx": 18,
+      "query": "Cheerleading: A group of cheerleaders run onto a stage before a cheering audience. They get into formation, then begin dancing and flipping as male cheerleaders join them. They all",
+      "choices": [
+        "dance and flip on stage while hanging their hats on the sides.",
+        "continue dancing and flipping, doing hand springs.",
+        "dance together with flip up their sleeves.",
+        "perform their routines as the studio rashes to a halt with cheerleaders in the audience."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -147.9334,
+        -126.7952,
+        -100.5062,
+        -185.4169
+      ],
+      "activity": "Cheerleading"
+    },
+    {
+      "idx": 19,
+      "query": "Cheerleading: They get into formation, then begin dancing and flipping as male cheerleaders join them. They all continue dancing and flipping, doing hand springs. When they",
+      "choices": [
+        "are done, they shake hands and walk away, but cheers are heard all around as they're finished.",
+        "are finished, they jump up and down happily and walk off the stage, exhausted.",
+        "are done, a male cheerleader is crowned and an instant replay is shown.",
+        "come down from their workout, they all stop to bow and applaud, then they continue dancing."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -181.8322,
+        -107.0008,
+        -137.0034,
+        -114.4615
+      ],
+      "activity": "Cheerleading"
+    },
+    {
+      "idx": 20,
+      "query": "Sharpening knives: A woman is reading a newspaper nearby while he speaks to her and shows her something in his hand. The man sharpens his knives using an electric tool. He",
+      "choices": [
+        "sharpens and cuts something on a knife board using an electric tool.",
+        "then continues cutting his onion.",
+        "travels with his knife under the table and uses it also in his shoe.",
+        "then shows her a spare knife that he has also used on a knife sharpener and drills into a side of the table."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -185.1361,
+        -93.294,
+        -167.3288,
+        -212.3709
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 21,
+      "query": "Cutting the grass: A man is outside of a building. He is using commercial lawn mowing equipment. He",
+      "choices": [
+        "walks back and forth as he mows the grass.",
+        "is animated as he does the task.",
+        "relaxes, making sure his lawn is pristine.",
+        "runs from one side of the building to the other."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -47.7605,
+        -53.166,
+        -138.8456,
+        -47.836
+      ],
+      "activity": "Cutting the grass"
+    },
+    {
+      "idx": 22,
+      "query": "Having an ice cream: Children bring desert out for their family member. The family",
+      "choices": [
+        "floats in a river.",
+        "member stands looking into a hut and then handing people photographs.",
+        "member cuts a piece of sunscreen.",
+        "enjoys eating the desert together."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -55.19,
+        -257.6421,
+        -90.187,
+        -13.3372
+      ],
+      "activity": "Having an ice cream"
+    },
+    {
+      "idx": 23,
+      "query": "Having an ice cream: The family enjoys eating the desert together. The people in the restaurant laugh at the man and he wonders what they are doing. The man",
+      "choices": [
+        "goes to the bathroom and isn't able to get very far.",
+        "puts the glass aside and a fourth person walks in and walks away.",
+        "plays the bagpipe and smiles and laughs as he enjoys the hospitality.",
+        "gets up and walks away to the other room."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -80.1403,
+        -173.1875,
+        -153.9702,
+        -21.56
+      ],
+      "activity": "Having an ice cream"
+    },
+    {
+      "idx": 24,
+      "query": "Washing face: A black female is shown in a room with a black scarf around her head. Black spots on her faced",
+      "choices": [
+        "are then zoomed in on and she begins to apply something on it.",
+        "are shown and she misses a little bit of her swing.",
+        "are shown and one finger is seen poking through.",
+        "are shown as she continues to dance around on the hardwood and every move makes a lash on her face."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -82.2775,
+        -132.9246,
+        -85.8806,
+        -247.1593
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 25,
+      "query": "Washing face: A black female is shown in a room with a black scarf around her head. Black spots on her faced are then zoomed in on and she begins to apply something on it. Next",
+      "choices": [
+        ", she begins to brush her lips and make painted lips look just like a lipstick to the camera and ends with her closing gift and instruction showing her off at the end.",
+        "she is shown in various different locations and gets extremely close to a wall.",
+        ", she is shown making multiple moans and sprays some kind of liquid down her face before hanging up.",
+        ", she takes some spray and it makes her skin extremely oily and she continues to talk until the video is over."
+      ],
+      "gold": 3,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -253.9653,
+        -116.0864,
+        -241.9783,
+        -268.4895
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 26,
+      "query": "Paintball: A helicopter flies in some people who then start playing paintball. They",
+      "choices": [
+        "run around obstacles and have a great time.",
+        "lose their shirt during the fight and run back the others.",
+        "shoot at each other while the helicopter drone who am looking on.",
+        "chase a bird in the sky while others walk around."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -66.669,
+        -126.2581,
+        -125.8316,
+        -117.3161
+      ],
+      "activity": "Paintball"
+    },
+    {
+      "idx": 27,
+      "query": "Gargling mouthwash: A young boy and girl are standing over a sink with their mother talking. The mother",
+      "choices": [
+        "is now putting lipstick on the boy's mouth and he tries to stop her but only gets a little bit stuck.",
+        "washes the boy while the child grabs shampoo.",
+        "shows some shaving cream on the boy who is scrubbing her brushes.",
+        "instructs them on how to brush their teeth while laughing."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -182.0937,
+        -132.1316,
+        -255.9604,
+        -98.1638
+      ],
+      "activity": "Gargling mouthwash"
+    },
+    {
+      "idx": 28,
+      "query": "Gargling mouthwash: A young boy and girl are standing over a sink with their mother talking. The mother instructs them on how to brush their teeth while laughing. The boy",
+      "choices": [
+        "puts a shirt on and rubs his mouth.",
+        "helps his younger sister brush his teeth.",
+        "walks with an empty mouthwash cup on a sink floor.",
+        "and girl then begin working out."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -74.6742,
+        -41.5509,
+        -189.7664,
+        -52.4886
+      ],
+      "activity": "Gargling mouthwash"
+    },
+    {
+      "idx": 29,
+      "query": "Gargling mouthwash: The mother instructs them on how to brush their teeth while laughing. The boy helps his younger sister brush his teeth. She",
+      "choices": [
+        "shows how to hit the mom and then kiss his dad as well.",
+        "brushes past the camera, looking better soon after.",
+        "glows from the center of the camera as a reaction.",
+        "gets them some water to gargle in their mouths."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -134.8597,
+        -196.9996,
+        -129.1471,
+        -83.9792
+      ],
+      "activity": "Gargling mouthwash"
+    },
+    {
+      "idx": 30,
+      "query": "Gargling mouthwash: She gets them some water to gargle in their mouths. The boy and girl begin playing in the sink. The woman",
+      "choices": [
+        "shakes her head in disbelief and waves at her.",
+        "laughs at the children dribbling water.",
+        "comes back and talks to the boys.",
+        "gets some food out of the fridge and they continue playing together."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -101.8244,
+        -46.9265,
+        -90.5074,
+        -66.2913
+      ],
+      "activity": "Gargling mouthwash"
+    },
+    {
+      "idx": 31,
+      "query": "Washing face: A cat is sitting in a cat bed. It is licking its paw. It",
+      "choices": [
+        "then wipes its paw on its ear.",
+        "crawls to the door.",
+        "'s laying down about six inches away from the camera.",
+        "crawls on one foot to get closer to the camera."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -13.1449,
+        -44.3225,
+        -81.7404,
+        -83.27
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 32,
+      "query": "Archery: A man in brown jacket is pulling out an arrow from the target board, then he was talking to the camera, then he pull out his bow and started to use it with his bow to hit the target board, he",
+      "choices": [
+        "played paper if and shoot the arrows to hit the target, then he hang from the board with his bow and arrow.",
+        "went to the target board and talked to the camera.",
+        "eventually throw the arrow, but it flew into the gravel is near the targets.",
+        "have his bow as he talk to the camera, he pulled it out to show how to put with its flex, tighten, and notch that was attached to his bow."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -198.0576,
+        -69.33,
+        -195.9321,
+        -233.0048
+      ],
+      "activity": "Archery"
+    },
+    {
+      "idx": 33,
+      "query": "Cutting the grass: A man walks outside plugs his lawn mower in and gets ready to mow. He",
+      "choices": [
+        "drives through the grass while drinking from a large cup of water and carrying his lawn mower.",
+        "walks off the porch and goes back inside.",
+        "starts mowing his lawn casually going over all the grass.",
+        "does this multiple times until a pale orange moon appears overhead."
+      ],
+      "gold": 2,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -159.779,
+        -23.9319,
+        -54.3588,
+        -96.6887
+      ],
+      "activity": "Cutting the grass"
+    },
+    {
+      "idx": 34,
+      "query": "Cutting the grass: A man walks outside plugs his lawn mower in and gets ready to mow. He starts mowing his lawn casually going over all the grass. His dog",
+      "choices": [
+        "comes outside and starts to follow him a little while he's closer to the house.",
+        "comes outside and takes a closer look at the man mowing, after he picks up the mower.",
+        "runs loose and feeds on his movements.",
+        "is having a seizure and starts to hop all over the lawn as he walks around."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -86.4623,
+        -174.8076,
+        -106.2103,
+        -125.2939
+      ],
+      "activity": "Cutting the grass"
+    },
+    {
+      "idx": 35,
+      "query": "Cutting the grass: He starts mowing his lawn casually going over all the grass. His dog comes outside and starts to follow him a little while he's closer to the house. The yard",
+      "choices": [
+        "is slowly starting to look really really nice, once he is completely finished the yard looks great, nice and smooth.",
+        "is very neat and clean and very active under the circumstances.",
+        "gets mowed quicker by the dog.",
+        "eventually looks happy on the outside and appears to be going pretty happily."
+      ],
+      "gold": 0,
+      "pred_acc": 2,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -177.5059,
+        -172.6736,
+        -68.2405,
+        -256.0498
+      ],
+      "activity": "Cutting the grass"
+    },
+    {
+      "idx": 36,
+      "query": "Surfing: A sea is shown with a green forest on seashore. Blond man is standing in seashore and talking to the camera and surfing big waves on the sea. Man",
+      "choices": [
+        "is on ocean and swimming in white water snapping his head.",
+        "is snowboarding up in the sea.",
+        "is doing flips in the waters and on the rocks and he be water surfing.",
+        "is walking on seashore through a lot of people and talking to the camera and holding an award and talking about surfing the seashore."
+      ],
+      "gold": 3,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -176.1974,
+        -63.6794,
+        -149.7654,
+        -201.0869
+      ],
+      "activity": "Surfing"
+    },
+    {
+      "idx": 37,
+      "query": "Washing face: We see a bottle of face wash. We",
+      "choices": [
+        "see a newspaper story.",
+        "see four cookies in a pan.",
+        "see a person holding face wash then putting it on their face.",
+        "see a tool on a table."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -84.4024,
+        -118.9498,
+        -50.9119,
+        -58.3181
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 38,
+      "query": "Washing face: We see a person holding face wash then putting it on their face. They rinse the face and add the face wash with a brush. We",
+      "choices": [
+        "see a closing title screen.",
+        "see a black screen with the credits.",
+        "see an illustration on how to add the wash using a brush.",
+        "then see a replay then the person putting the face wash on."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -66.3414,
+        -62.2891,
+        -53.2002,
+        -68.6096
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 39,
+      "query": "Plastering: A person is seen throwing plaster onto a wall while the camera follows the person close behind. The person",
+      "choices": [
+        "continues throwing ingredients down and leads into a person kicking a dirty toilet.",
+        "gradually throws more and more onto the wall and the camera pans over the finished product.",
+        "then uses paper to spread it all over the wall followed by others putting paper through with the plaster.",
+        "is now seen putting wax all along the wall while still looking back to the camera."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -294.2064,
+        -76.7414,
+        -166.5592,
+        -125.8561
+      ],
+      "activity": "Plastering"
+    },
+    {
+      "idx": 40,
+      "query": "Applying sunscreen: More and more people begin talking and each of them has a bottle of sun screen and starts to squirt it on their arms in effort to protect their skin. A small blue bottle of the sun",
+      "choices": [
+        "appears and then different people carry it to a table where they mix the liquid with a straw with a straw and take turns squirting the liquid into their skin.",
+        "appears near each of their hair as they continue to talk but no bottle at all appear.",
+        "is then shown and several more people begin talking about the product.",
+        "zooms in on sheers that they have on the floor."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -242.4291,
+        -138.0752,
+        -81.4153,
+        -100.015
+      ],
+      "activity": "Applying sunscreen"
+    },
+    {
+      "idx": 41,
+      "query": "Beer pong: A group of boys are standing in a room with many clear cups of beer on a table they are all standing around. The boys",
+      "choices": [
+        "take a flute together and then begin to play the harmonica using it to play the tune.",
+        "begin to wrap red bow around the plastic cups, put bows on the bottoms _start_various objects on the foam covers and belongings to the floor.",
+        "talk, laugh and tease each other before beginning a game of beer pong across a long table using a triangle shaped array of clear cups.",
+        "all grab one and chug their contents of the cans."
+      ],
+      "gold": 2,
+      "pred_acc": 3,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -192.1152,
+        -276.3979,
+        -242.2929,
+        -153.6805
+      ],
+      "activity": "Beer pong"
+    },
+    {
+      "idx": 42,
+      "query": "Beer pong: The boys talk, laugh and tease each other before beginning a game of beer pong across a long table using a triangle shaped array of clear cups. One of the ping pongs",
+      "choices": [
+        "is knocked upside down, which causes the other teens to give each other high fives.",
+        "tries to rise but dikes instead.",
+        "rush walks up in front of the boys, removes a small piece of paper from the bottom of the table, puts a hand on the machine and wrestles with buttons, turns the machine off and pushes a button inside to turn the game back on.",
+        "lands in the cup and one of the boys begins to drink the beer."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -180.5758,
+        -140.2622,
+        -218.0696,
+        -58.7863
+      ],
+      "activity": "Beer pong"
+    },
+    {
+      "idx": 43,
+      "query": "Beer pong: One of the ping pongs lands in the cup and one of the boys begins to drink the beer. The group",
+      "choices": [
+        "of teens is sailing down the river with others sailing in the background.",
+        "gets up together and poses with their vests to celebrate.",
+        "continue to play beer pong when one final player is able to throw and land a ping pong ball while standing with his back to the cups at which point the boys celebrate, and laugh.",
+        "does a trick and the liquid is poured on a second table."
+      ],
+      "gold": 2,
+      "pred_acc": 1,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -145.5401,
+        -100.5495,
+        -217.5681,
+        -114.1755
+      ],
+      "activity": "Beer pong"
+    },
+    {
+      "idx": 44,
+      "query": "Grooming dog: There's a nbc news reporter wearing a red sweater and white shirt talking about dog grooming by scissor wizard a grooming company. The representative from the company",
+      "choices": [
+        "is talking about the services they offer and how those dogs participate in dog shows.",
+        "speaks to a woman sitting on a colorful conference room chair next to a brown dog kennel in front of them.",
+        "tells viewers about a dog grooming company, itv with a website.",
+        "in grey sweater and black pants talks about the procedures on grooming dogs in life and techniques."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -121.956,
+        -238.2101,
+        -122.9982,
+        -226.5102
+      ],
+      "activity": "Grooming dog"
+    },
+    {
+      "idx": 45,
+      "query": "Grooming dog: The representative from the company is talking about the services they offer and how those dogs participate in dog shows. A groomer",
+      "choices": [
+        "is seen using shears to creatively trim the dog's hair and even dye it in colorful shades of red, green, yellow and blue.",
+        "is presenting cookies to the room with a loaf of bread.",
+        "shows crowd opinion for use as their garden service representative.",
+        "speaks to an older man about snow cleaning dogs and showing how it is flectious."
+      ],
+      "gold": 0,
+      "pred_acc": 1,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -210.7219,
+        -180.8452,
+        -292.38,
+        -255.0855
+      ],
+      "activity": "Grooming dog"
+    },
+    {
+      "idx": 46,
+      "query": "Having an ice cream: A woman tries to eat ice cream to a child, but the child refuses to eat the ice cream, then the woman eats the ice cream in the spoon. After",
+      "choices": [
+        ", the woman gives ice cream to the child, and then the woman cleans the child's mouth.",
+        ", the child takes out the fork the other child takes out the spoon and eats the ice cream.",
+        ", the child and the woman tries to eat food without ice cream, then they sit and talk with adults in the room.",
+        ", two people wearing red shirts pass through the store's door and inside the market and besides a man and a chimpanzee wearing silver uniforms are watching the woman and child."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -71.0567,
+        -81.2791,
+        -172.8616,
+        -273.4517
+      ],
+      "activity": "Having an ice cream"
+    },
+    {
+      "idx": 47,
+      "query": "Having an ice cream: After, the woman gives ice cream to the child, and then the woman cleans the child's mouth. An old woman",
+      "choices": [
+        "feeds a boy ice cream.",
+        "hold the child and eats the ice cream, after the woman is giving baby ice cream to the child.",
+        "tries to stop the mother pray while giving a baby something else.",
+        "is standing using a white blower to blow snow."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -31.5318,
+        -120.9949,
+        -148.6919,
+        -76.4019
+      ],
+      "activity": "Having an ice cream"
+    },
+    {
+      "idx": 48,
+      "query": "Clean and jerk: Men are lifting heavy weights over their head several times. A man in a blue shirt is watching one of the men. A man in a gray shirt",
+      "choices": [
+        "is watching the men on the ground.",
+        "hits a big weight in slow motion.",
+        "is talking to one of the men in the middle of the gym.",
+        "is mimicking the person lifting the weight."
+      ],
+      "gold": 3,
+      "pred_acc": 0,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -19.64,
+        -105.0381,
+        -21.3903,
+        -77.544
+      ],
+      "activity": "Clean and jerk"
+    },
+    {
+      "idx": 49,
+      "query": "Grooming dog: In home pet groomers demonstrate how to groom a pet. The person",
+      "choices": [
+        "puts a setting engage on the pets tongue and leash.",
+        "starts at their butt rise, combing out the hair with a brush from a red.",
+        "is demonstrating how the dog's hair is trimmed with electric shears at their grooming salon.",
+        "installs and interacts with a sleeping pet before moving away."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -175.4893,
+        -183.2385,
+        -115.5296,
+        -205.2993
+      ],
+      "activity": "Grooming dog"
+    },
+    {
+      "idx": 50,
+      "query": "Polishing shoes: A person polish a shoe with a wrapped finger. Then",
+      "choices": [
+        ", the person remove the wrapping paper to expose a shoe.",
+        ", the person removes the heel heel from the shoe and polish.",
+        ", the person grabs polish paste and water to polish the shoe.",
+        ", a person polish the fingers, then the person puts a black polish."
+      ],
+      "gold": 2,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -44.4476,
+        -89.2445,
+        -153.1168,
+        -117.3381
+      ],
+      "activity": "Polishing shoes"
+    },
+    {
+      "idx": 51,
+      "query": "Zumba: Eight people are standing at the studio, one woman walked at the back of the group. The group",
+      "choices": [
+        "then begins marching down a fitness track, demonstrating steps, going forward and backward, in between takes several breaks to lift their feet.",
+        "is gathered around a long table into a dance routine.",
+        "started dancing, swirling, shaking their hips, rotating, their arms and hands are moving from side to side, in front.",
+        "continue to discuss the topic of volleyball."
+      ],
+      "gold": 2,
+      "pred_acc": 1,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -259.9278,
+        -119.4851,
+        -200.1479,
+        -146.72
+      ],
+      "activity": "Zumba"
+    },
+    {
+      "idx": 52,
+      "query": "Sharpening knives: A man is seen talking to the camera and presents his knife and sharpener. He then glides the knife down the sharpener and shows how other knives work with different sharpeners. He",
+      "choices": [
+        "then repeats his advice and using more wax.",
+        "shows the using the sharpener on a piece of wood.",
+        "presents the knife one last time while still speaking to the camera.",
+        "uses scissors to cut the blade as well as metal and talk to the camera at the end."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -179.2312,
+        -108.865,
+        -75.8803,
+        -132.9175
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 53,
+      "query": "Playing harmonica: A man walks onto the stage to join a band. A man",
+      "choices": [
+        "plays harp and flute while two other people play instruments next to him.",
+        "and woman dance around together on the stage.",
+        "dance on the ropes attached to the stage.",
+        "plays up front of a band with a harmonica."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -94.8986,
+        -58.6793,
+        -99.943,
+        -44.4288
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 54,
+      "query": "Playing harmonica: A man walks onto the stage to join a band. A man plays up front of a band with a harmonica. The keyboardist",
+      "choices": [
+        "plays the hip hop and dance moves with the band.",
+        "plays a spirited solo during the song.",
+        "plays his guitar while moving his body around in front of the band.",
+        "sings with the band, twirling his violin as he walks."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -84.5519,
+        -70.321,
+        -67.885,
+        -111.5481
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 55,
+      "query": "Running a marathon: A camera pans away from a road and shows a person's feet moving around. Several shots",
+      "choices": [
+        "are shown of people riding up a mountain on skis while being pulled down by a rope.",
+        "are shown of people tying their shoes, hitting a button, and checking a watch.",
+        "are shown of people wake boarding.",
+        "are then shown of people riding on snowboards over mountains."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -162.9851,
+        -97.727,
+        -46.9692,
+        -94.5329
+      ],
+      "activity": "Running a marathon"
+    },
+    {
+      "idx": 56,
+      "query": "Running a marathon: A camera pans away from a road and shows a person's feet moving around. Several shots are shown of people tying their shoes, hitting a button, and checking a watch. People",
+      "choices": [
+        "march around a room wearing funny hats, hats, and shoes.",
+        "then are shown washing a car.",
+        "are then seen running down the road one at a time followed by many more following.",
+        "walk along a road, using bicycles and bagpipes."
+      ],
+      "gold": 2,
+      "pred_acc": 1,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -126.8065,
+        -60.6274,
+        -170.9902,
+        -100.7247
+      ],
+      "activity": "Running a marathon"
+    },
+    {
+      "idx": 57,
+      "query": "Using the pommel horse: A gymnast put power chalk power on his hands and stands near the pommel horse. Then",
+      "choices": [
+        ", the gymnast put strength and power item on his body and falls.",
+        ", the gymnast approach the pommel horse to spin around many times.",
+        ", the gymnast blade the board and stands in position facing the pommel horse doing blade moves.",
+        ", the gymnast moves around and flips the chalk power to full weight and continues gymnastics for the next competition, after he turns and stands near the pommel horse."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -146.2948,
+        -135.6719,
+        -234.296,
+        -246.1238
+      ],
+      "activity": "Using the pommel horse"
+    },
+    {
+      "idx": 58,
+      "query": "Using the pommel horse: A gymnast put power chalk power on his hands and stands near the pommel horse. Then, the gymnast approach the pommel horse to spin around many times. Then",
+      "choices": [
+        ", the gymnast stand on his hand and jumps to land on the floor, while people applaud.",
+        ", the gymnast put the star light on his hands and jumps high using strength.",
+        ", the gymnast puts fluid on the pommel horse and sit on it to rise the body while position it.",
+        ", the gymnast cross the pommel horse with the long rope while performing handsprings."
+      ],
+      "gold": 0,
+      "pred_acc": 1,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -126.2937,
+        -124.7517,
+        -209.5659,
+        -129.7568
+      ],
+      "activity": "Using the pommel horse"
+    },
+    {
+      "idx": 59,
+      "query": "Kayaking: A logo shows that this video is presented by expert village. A man in a small blue boat",
+      "choices": [
+        "is pushing a kress of water in a lake while instructing his boarder.",
+        "discusses the topic of hand surfing in a hole and gives hints on how to perform this activity.",
+        ", in the middle of a lake, is skiing.",
+        "is in the water pushing a boat with a sail."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -161.66,
+        -234.6531,
+        -62.4745,
+        -86.8132
+      ],
+      "activity": "Kayaking"
+    },
+    {
+      "idx": 60,
+      "query": "Kayaking: A man in a small blue boat discusses the topic of hand surfing in a hole and gives hints on how to perform this activity. The man",
+      "choices": [
+        "demonstrates how to properly back up a hand surf by requiring an anchor.",
+        "demonstrates tricks that can be done while performing this activity.",
+        "in the small blue boat holds a fish in his hands and then holds the fish while talking about the technique needed to perform this activity.",
+        "is omic on the water as he's riding the speedo on the aerobic machine still pointing down at the water."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -202.3847,
+        -110.9775,
+        -182.1005,
+        -263.051
+      ],
+      "activity": "Kayaking"
+    },
+    {
+      "idx": 61,
+      "query": "Playing harmonica: The camera pans to show a man playing a harmonica while sitting on a log beside a river. A woman walks near the train tracks while a train drives by. The woman",
+      "choices": [
+        "continues just playing with the tunes she made.",
+        "sees the harmonica playing man in the distance.",
+        "taps a horn intermittently as the camera pans right.",
+        "plays a song on her harmonica while walking away from the train."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -179.2662,
+        -18.4848,
+        -152.7088,
+        -56.5894
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 62,
+      "query": "Playing harmonica: A woman walks near the train tracks while a train drives by. The woman sees the harmonica playing man in the distance. She",
+      "choices": [
+        "comes back to the train and continues walking on the subway.",
+        "walks around the rail of the tracks and watches the scenery and the crowds of people.",
+        "watches him and listens to him playing.",
+        "begins playing with the harmonica and stops."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -139.6173,
+        -193.4392,
+        -15.8376,
+        -89.3768
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 63,
+      "query": "Playing harmonica: The woman sees the harmonica playing man in the distance. She watches him and listens to him playing. She walks away leaving the man. The man",
+      "choices": [
+        "takes out a wall show from his guitar.",
+        "finishes playing and remains seated.",
+        "jumps over a barrier and lands on the sandy beach.",
+        "plays in a house while the woman looks on."
+      ],
+      "gold": 1,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -111.0515,
+        -74.3738,
+        -109.7314,
+        -65.6382
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 64,
+      "query": "Cleaning windows: A person is shown looking around a city and begins washing windows with his tools. He",
+      "choices": [
+        "then brushes right through the window and cleans it off.",
+        "uses a large block cutter to remove smaller blocks until he has the whole of the window covered.",
+        "puts water on a hose and begins cleaning the windows.",
+        "goes up and down the windows at a rapid pace and continues filming himself through the glass."
+      ],
+      "gold": 3,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -81.3805,
+        -244.5394,
+        -52.6316,
+        -150.725
+      ],
+      "activity": "Cleaning windows"
+    },
+    {
+      "idx": 65,
+      "query": "Cleaning windows: A person is shown looking around a city and begins washing windows with his tools. He goes up and down the windows at a rapid pace and continues filming himself through the glass. He",
+      "choices": [
+        "continues to work by scrubbing the windows and then by pouring water out.",
+        "takes his clothes off and hangs them up before throwing his plaid shirt into the laundry.",
+        "finishes the glass in record time and turns off the camera.",
+        "spins around to show the different angles of the board and shows pictures of the house in the end."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -148.2267,
+        -156.7272,
+        -65.6413,
+        -192.3749
+      ],
+      "activity": "Cleaning windows"
+    },
+    {
+      "idx": 66,
+      "query": "Ice fishing: A man dressed in yellow and black winter clothes ice fishes on a a frozen lake. The man",
+      "choices": [
+        "is reeling in a fish for a long time.",
+        "spins with his fishing pole in the air.",
+        "does a trick on his dirty ice fishing line.",
+        "does numerous tricks as he goes through these beauty course courses of ice covered lakes."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -82.4424,
+        -94.5422,
+        -103.2957,
+        -264.6596
+      ],
+      "activity": "Ice fishing"
+    },
+    {
+      "idx": 67,
+      "query": "Ice fishing: A man dressed in yellow and black winter clothes ice fishes on a a frozen lake. The man is reeling in a fish for a long time. The mans catch",
+      "choices": [
+        "more fish and throws them to the side.",
+        "finally reaches the surface.",
+        "a fish for dinner by making a wish with his mouth.",
+        "one and puts it on a fishing pole in the lake."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -76.0307,
+        -13.4816,
+        -148.2641,
+        -76.4747
+      ],
+      "activity": "Ice fishing"
+    },
+    {
+      "idx": 68,
+      "query": "Washing face: Two children are seen sitting in a tub rubbing their faces and another person's hands interacting. The boy",
+      "choices": [
+        "continues to rub water all over his face as well as play with toys and smile at the cameraman.",
+        "walks out of the bathroom laughing to the camera and the girl stands up to rinse her face off.",
+        "then begins washing the other child and ends by copulating with him.",
+        "is now seen pointing down by himself and leads into him holding a comb and blow dryer and speaking to others."
+      ],
+      "gold": 0,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -169.8484,
+        -141.6581,
+        -91.2486,
+        -291.8099
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 69,
+      "query": "Hitting a pinata: A woman hands a young boy a stick with a little girl grabbing for her attention. The pinata",
+      "choices": [
+        "is lifted and the boy begins swinging at the object.",
+        "pops, and a child in white attempts to hit the pinata, but fails.",
+        "pops out of the playground.",
+        "is hit one after the other, and the girl lets go her hold."
+      ],
+      "gold": 0,
+      "pred_acc": 2,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -92.3697,
+        -112.6433,
+        -83.6156,
+        -123.4711
+      ],
+      "activity": "Hitting a pinata"
+    },
+    {
+      "idx": 70,
+      "query": "Hitting a pinata: A woman hands a young boy a stick with a little girl grabbing for her attention. The pinata is lifted and the boy begins swinging at the object. The camera",
+      "choices": [
+        "zooms in on the pinata and then the girl.",
+        "is upside down so everyone else can't see the object.",
+        "pans around people watching while he hits the pinata and a little boy is seen clapping behind him.",
+        "zooms in on the boy's head and he looks at the pinata person in the background."
+      ],
+      "gold": 2,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -18.2142,
+        -117.0432,
+        -131.2359,
+        -102.9635
+      ],
+      "activity": "Hitting a pinata"
+    },
+    {
+      "idx": 71,
+      "query": "Playing violin: A woman is playing a violin on the street while various people walk around here and behind her. She",
+      "choices": [
+        "continues to play violin while people pass by her.",
+        "continues playing the violin and beginning to intermittently move the sticks up and down.",
+        "smiles into the camera while playing and continues playing the song while several people bend down to tip her and walk around her.",
+        "finishes and walks off, leaving the violin lying on the ground."
+      ],
+      "gold": 2,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -90.7189,
+        -258.5484,
+        -246.4105,
+        -55.8185
+      ],
+      "activity": "Playing violin"
+    },
+    {
+      "idx": 72,
+      "query": "Making a sandwich: Various pictures of food are shown followed by a person cutting up vegetables and mixing various ingredients into a pot. He",
+      "choices": [
+        "shows how the vegetables are chopped for seasoning and then sprinkled into broth and shown with the water boiling.",
+        "cooks up a meal and each are shown eating inside the pot.",
+        "boils food into a bowl and then adds some part of a salad into the bowl.",
+        "then cuts up a piece of bread, scoops out the insides, and fries up some meat."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -280.555,
+        -176.9384,
+        -138.6407,
+        -91.3003
+      ],
+      "activity": "Making a sandwich"
+    },
+    {
+      "idx": 73,
+      "query": "Making a lemonade: Ingredients are sitting on a wooden block. A person",
+      "choices": [
+        "adds flour to a baking pan.",
+        "starts mixing the ingredients together.",
+        "puts salt, lemon juice in a pot, then adds eggs, cheese, ham, and some other hoagies.",
+        "is mixing the ingredients in an iron."
+      ],
+      "gold": 1,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -110.3333,
+        -56.8879,
+        -208.7023,
+        -25.7967
+      ],
+      "activity": "Making a lemonade"
+    },
+    {
+      "idx": 74,
+      "query": "Hitting a pinata: A man is seen walking closer to a pinata while a large group of people stand around him. The man",
+      "choices": [
+        "shows off various tapers while swinging at the pinata and throwing them out to the crowd.",
+        "then throws the pin while others watch on the sides.",
+        "spins around several times and throws the stick.",
+        "misses the pinata and hits a person behind him, shown again in slow motion."
+      ],
+      "gold": 3,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -211.6051,
+        -98.3416,
+        -63.9445,
+        -129.9259
+      ],
+      "activity": "Hitting a pinata"
+    },
+    {
+      "idx": 75,
+      "query": "Ironing clothes: A pair of female hands uses an iron on a piece of baby clothing. The woman",
+      "choices": [
+        "wets the garment and scrubs it with a cloth.",
+        "peels the old clothing off the piece and replaces it with dry material.",
+        "sets the iron aside and flips the clothing.",
+        "wraps the garment on top of the blouse, then irons it."
+      ],
+      "gold": 2,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -32.3635,
+        -174.9824,
+        -103.5808,
+        -124.7979
+      ],
+      "activity": "Ironing clothes"
+    },
+    {
+      "idx": 76,
+      "query": "Ironing clothes: A pair of female hands uses an iron on a piece of baby clothing. The woman sets the iron aside and flips the clothing. The woman",
+      "choices": [
+        "then undresses and irons the shirt.",
+        "places a pair of pants into a bucket.",
+        "shows how to iron a sock correctly.",
+        "uses the iron on the other side of the clothing."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -75.1475,
+        -80.2797,
+        -134.2608,
+        -7.4496
+      ],
+      "activity": "Ironing clothes"
+    },
+    {
+      "idx": 77,
+      "query": "Ironing clothes: The woman sets the iron aside and flips the clothing. The woman uses the iron on the other side of the clothing. The woman",
+      "choices": [
+        "scrubs the clothing with her hands.",
+        "quickly picks up and irons, flames dancing over the clothing.",
+        "sets the iron aside.",
+        "crosses her arms in front of her and it's gone."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -29.6088,
+        -194.9746,
+        -6.0254,
+        -113.8565
+      ],
+      "activity": "Ironing clothes"
+    },
+    {
+      "idx": 78,
+      "query": "Clipping cat claws: We see a chair with a pillow on it. A man holding a cat",
+      "choices": [
+        "does curling.",
+        "starts hitting objects on an item.",
+        "sits down on the chair.",
+        "is wrapping a box."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -68.6001,
+        -179.0727,
+        -6.9552,
+        -79.4417
+      ],
+      "activity": "Clipping cat claws"
+    },
+    {
+      "idx": 79,
+      "query": "Clipping cat claws: We see a chair with a pillow on it. A man holding a cat sits down on the chair. The man clips the cats fingernails. The man",
+      "choices": [
+        "strokes the cat's head.",
+        "then clips the cat nails.",
+        "puts the cat down and boxes it with paper.",
+        "gives the cats ears."
+      ],
+      "gold": 0,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -39.4841,
+        -16.1262,
+        -56.1732,
+        -19.8706
+      ],
+      "activity": "Clipping cat claws"
+    },
+    {
+      "idx": 80,
+      "query": "Clipping cat claws: A man holding a cat sits down on the chair. The man clips the cats fingernails. The man strokes the cat's head. The man",
+      "choices": [
+        "sits back down on the chair.",
+        "takes the cat to the other room.",
+        "stands up and walks down the sidewalk.",
+        "plays with the cat rocking it back and forth."
+      ],
+      "gold": 3,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -40.2609,
+        -13.0438,
+        -96.4443,
+        -91.986
+      ],
+      "activity": "Clipping cat claws"
+    },
+    {
+      "idx": 81,
+      "query": "Baton twirling: A young girl in a green leotard begins twirling a baton and doing tricks. The girl",
+      "choices": [
+        "does this in the beginning while using her foot and one hand to move around her body.",
+        "begins to do some of her routine and does a few hip spins.",
+        "puts their hands together, and twirl together like a ballet dancer.",
+        "begins to incorporate her arms and does a flip and continues to flip the baton over her hands and arms."
+      ],
+      "gold": 3,
+      "pred_acc": 2,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -223.4706,
+        -93.8727,
+        -79.736,
+        -115.9273
+      ],
+      "activity": "Baton twirling"
+    },
+    {
+      "idx": 82,
+      "query": "Baton twirling: The girl begins to incorporate her arms and does a flip and continues to flip the baton over her hands and arms. As the young lady",
+      "choices": [
+        "continues her performance, she twirls the baton between her legs and over her head, catches it and does a gallop.",
+        "is still serving the baton, she places the extension on her left hand and does a full 180 degree spin in one flip.",
+        "becomes more involved in the ballet, she does a final dismount to bring her elbows down and her upper body straight.",
+        "is zapping her arms and is practicing her baton twirling technique, she grabs the baton from the ground and shows herself victorious while her coach claps."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -111.5894,
+        -219.5284,
+        -253.8276,
+        -212.8966
+      ],
+      "activity": "Baton twirling"
+    },
+    {
+      "idx": 83,
+      "query": "Baton twirling: As the young lady continues her performance, she twirls the baton between her legs and over her head, catches it and does a gallop. The rest of the young girl's performance",
+      "choices": [
+        "is replayed in slow motion.",
+        "is a set of twirls and twist and then she runs off the floor to finish her performance.",
+        "is shown several times and ends by showcasing her back to the both the camera and a final focus of her performance.",
+        "is replayed, ending with the young lady clapping her hands joyfully."
+      ],
+      "gold": 1,
+      "pred_acc": 0,
+      "pred_norm": 1,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -46.9644,
+        -106.7749,
+        -261.6809,
+        -104.7422
+      ],
+      "activity": "Baton twirling"
+    },
+    {
+      "idx": 84,
+      "query": "Removing ice from car: We see a man in a driveway cleaning snow from his car. The man",
+      "choices": [
+        "cleans the snow under his windshield wipers.",
+        "wet his car and wipes it down.",
+        "moves the snow out of the front bumper of his car and pours gasoline on it.",
+        "removes the pieces of the line off his windshield."
+      ],
+      "gold": 0,
+      "pred_acc": 1,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -99.3184,
+        -71.4763,
+        -142.2362,
+        -112.6882
+      ],
+      "activity": "Removing ice from car"
+    },
+    {
+      "idx": 85,
+      "query": "Removing ice from car: We see a man in a driveway cleaning snow from his car. The man cleans the snow under his windshield wipers. We",
+      "choices": [
+        "see the old man's garage and what looks like a boat in the water.",
+        "see the building behind the car.",
+        "zoom in on the cabin.",
+        "see the mans silver car gliding by in the background."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -177.8573,
+        -52.0633,
+        -54.8619,
+        -101.5749
+      ],
+      "activity": "Removing ice from car"
+    },
+    {
+      "idx": 86,
+      "query": "Removing ice from car: The man cleans the snow under his windshield wipers. We see the building behind the car. We do a 360 spin to see the parking lot. The man",
+      "choices": [
+        "finishes and turns off the wipers.",
+        "opens the doors on his car and gets in.",
+        "finishes and slides out of the car.",
+        "puts up the camera."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -48.69,
+        -20.4731,
+        -62.9519,
+        -57.4731
+      ],
+      "activity": "Removing ice from car"
+    },
+    {
+      "idx": 87,
+      "query": "Clean and jerk: A man in a blue shirt and shorts lifts a large weight over his head. Another man is filming it. The same man comes back and lifts the weight over his head again. He",
+      "choices": [
+        "drops it on the ground and walks away.",
+        "again lifts the weight over his head.",
+        "drops it and runs towards the camera.",
+        "drops it onto the floor where it gets stuck."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -14.8042,
+        -33.2221,
+        -45.6658,
+        -55.3551
+      ],
+      "activity": "Clean and jerk"
+    },
+    {
+      "idx": 88,
+      "query": "Throwing darts: A man is seen throwing a dart onto a board and leads into a woman speaking. The man",
+      "choices": [
+        "tosses darts into the water while people measure the distance and run after them.",
+        "gives her several tips and she continues creating darts.",
+        "throws several more darts while taking the time to speak to the woman.",
+        "holds behind him and the woman continues speaking."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -200.2151,
+        -200.1748,
+        -80.8723,
+        -97.5194
+      ],
+      "activity": "Throwing darts"
+    },
+    {
+      "idx": 89,
+      "query": "Surfing: A group of people are standing in the middle of a forest with a trail of pebbles separating them from a beautiful crystal clear body of water. The camera",
+      "choices": [
+        "then goes right side up and shows a lot of scenery on the left side.",
+        "follows the couple kayaking behind the group on the trail moving back and fourth on the murky water in the forest.",
+        "moves across the water and several people on boats and jet-skis are moving in the water near a large wave.",
+        "zooms in on the foamy waters as well as the nearby cliffs and forest surrounding it."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -140.0413,
+        -239.0766,
+        -104.9737,
+        -146.6848
+      ],
+      "activity": "Surfing"
+    },
+    {
+      "idx": 90,
+      "query": "Surfing: The camera moves across the water and several people on boats and jet-skis are moving in the water near a large wave. More large waves begin to surface and a man begins surfing the waves. The",
+      "choices": [
+        "is then shown clearly under a large wide wave.",
+        "is then shown and surf boards appear that are washed up against the banks of the water.",
+        "starts to get darker and darker as the large wave picks up and men continue to sail around it.",
+        "of trees quickly moves over the trailing wave and they follow suit as well."
+      ],
+      "gold": 1,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": false,
+      "correct_norm": false,
+      "logprobs": [
+        -177.8147,
+        -197.0989,
+        -173.5747,
+        -236.8423
+      ],
+      "activity": "Surfing"
+    },
+    {
+      "idx": 91,
+      "query": "Cutting the grass: A large patch of grass is shown. A man",
+      "choices": [
+        "belly flops on some grass before a newscaster announces the story.",
+        "stretches in front of it.",
+        "is shown inside while a machine is working.",
+        "is mowing the yard next to the bushes."
+      ],
+      "gold": 3,
+      "pred_acc": 1,
+      "pred_norm": 3,
+      "correct_acc": false,
+      "correct_norm": true,
+      "logprobs": [
+        -150.5874,
+        -48.3223,
+        -69.3162,
+        -58.9087
+      ],
+      "activity": "Cutting the grass"
+    },
+    {
+      "idx": 92,
+      "query": "Rollerblading: A pilates instructor on skates explains how to strap your risk protectors tight and shows that you need knee pads to protect your knees. The lady",
+      "choices": [
+        "starts with two small straps and it puts her into a squatting position with feet fully placed over her knee and her hands suspended and ready.",
+        "then explains the skates movement and how to use the breaks that is in the back of the skates.",
+        "then puts lotion in both of her hands and rubs them along your knees while the instructor washes them.",
+        "shows how to harness and strap your weight on properly and she moves away from the mounting as she reaches for her left knee."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -268.6539,
+        -166.5156,
+        -169.0021,
+        -255.5872
+      ],
+      "activity": "Rollerblading"
+    },
+    {
+      "idx": 93,
+      "query": "Sharpening knives: A woman wearing a tan apron is holding a knife and talking. She then shows an appliance on the table and tilts it upwards. She",
+      "choices": [
+        "turns a dial on the appliance and sets it back down.",
+        "continues sliding the blade over the appliance.",
+        "takes a quarter of an inch of the device and holds it against a piece of cake.",
+        "removes a lemon from a jar and places it into a pot."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 0,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -52.0236,
+        -52.2694,
+        -158.9352,
+        -114.005
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 94,
+      "query": "Sharpening knives: She then shows an appliance on the table and tilts it upwards. She turns a dial on the appliance and sets it back down. She",
+      "choices": [
+        "shows several shots of the chair in the end.",
+        "picks the knife back up and places it on the appliance.",
+        "pokes the vacuum nozzle in the top seam of the vacuum cleaner and adds fuel to it while still keeping the vacuum nozzle up.",
+        "also shows how to use tubing no a string is attached to it and she explaining the use of the tubing."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -194.0949,
+        -17.5067,
+        -210.1092,
+        -235.1936
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 95,
+      "query": "Sharpening knives: She turns a dial on the appliance and sets it back down. She picks the knife back up and places it on the appliance. She",
+      "choices": [
+        "gets up and starts brushing the blade.",
+        "uses a tool to pinch the wax off of the knife.",
+        "turns the dial again on the appliance.",
+        "jumps up and throws something into a container shaped like a snowboard."
+      ],
+      "gold": 2,
+      "pred_acc": 2,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -115.0839,
+        -133.0598,
+        -12.8849,
+        -175.3979
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 96,
+      "query": "Sharpening knives: She picks the knife back up and places it in the appliance and slowly draws it back several times. She",
+      "choices": [
+        "slices a tomato on a wood block with the knife.",
+        "removes the rubber band off of the knife and gets it across the blade.",
+        "continues using the appliance to put the fancy knife on the box.",
+        "stands up from the chair and walks towards the stairs before finally leaving the room."
+      ],
+      "gold": 0,
+      "pred_acc": 0,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -92.3695,
+        -129.4588,
+        -116.8537,
+        -144.1283
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 97,
+      "query": "Sharpening knives: She picks the knife back up and places it in the appliance and slowly draws it back several times. She slices a tomato on a wood block with the knife. She",
+      "choices": [
+        "decorates the knife with green and red maracas.",
+        "positions the knife front and back and finishes by pushing it straight across the square board.",
+        "then demonstrates how to sharpen the knife and finishes by putting a metal rod in front of the plate of spaghetti that she just sharpened.",
+        "grabs a second knife and puts it in the appliance."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 2,
+      "correct_acc": true,
+      "correct_norm": false,
+      "logprobs": [
+        -112.9768,
+        -246.3885,
+        -229.8975,
+        -83.4672
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 98,
+      "query": "Sharpening knives: A man wearing a black clothes is sharpening the knife on a stone. The man beside him on blue long sleeves drawing something on the table with his finger. The man",
+      "choices": [
+        "continues sharpening the knife and standing on the middle of the stone.",
+        "turn the knife to sharpen the other side and then wipe it with paper towel.",
+        "stops sharpening the knife and draws on the stone again.",
+        "down retracts from the knife and starts sharpening the knife back up again."
+      ],
+      "gold": 1,
+      "pred_acc": 1,
+      "pred_norm": 1,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -175.7823,
+        -59.8282,
+        -112.4229,
+        -176.6324
+      ],
+      "activity": "Sharpening knives"
+    },
+    {
+      "idx": 99,
+      "query": "Layup drill in basketball: A man is seen speaking to the camera while a shot of a person playing basketball shows behind. The man",
+      "choices": [
+        "continues going around the basket while the camera is sitting in the back.",
+        "continues to speak and leads into more clips of him playing tennis.",
+        "pulls the ball up on the court while still speaking to the camera.",
+        "continues speaking as more shots are shown of the boy playing basketball."
+      ],
+      "gold": 3,
+      "pred_acc": 3,
+      "pred_norm": 3,
+      "correct_acc": true,
+      "correct_norm": true,
+      "logprobs": [
+        -84.275,
+        -94.7093,
+        -100.2942,
+        -48.4486
+      ],
+      "activity": "Layup drill in basketball"
+    }
+  ],
+  "elapsed_sec": 2510.7,
+  "limit": 100,
+  "num_fewshot": 0,
+  "task_name": "hellaswag",
+  "bootstrap_ci": {
+    "mean": 0.61,
+    "ci_lo": 0.51,
+    "ci_hi": 0.7
+  }
+}

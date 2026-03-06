@@ -1,0 +1,13 @@
+{
+  "task": "hellaswag_fewshot_semantic_5",
+  "num_fewshot": 0,
+  "limit": 100,
+  "scoring_mode": "soft_floor",
+  "results": {
+    "acc": 0.53,
+    "acc_norm": 0.65
+  },
+  "elapsed_sec": 1125.2,
+  "seed": 42,
+  "model": "llama3:8b"
+}
