@@ -11,3 +11,4 @@ logs/
 .ipynb_checkpoints/
 .pytest_cache/
 eval_runner/cache/
+perf/scorer/scorer

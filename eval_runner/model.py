@@ -289,10 +289,59 @@ class OllamaEvalModel(LM):
         return [results_map[i] for i in range(len(requests_list))]
 
     # ------------------------------------------------------------------
+    # Go proxy: batch scoring via the Go scoring proxy (perf/scorer)
+    # ------------------------------------------------------------------
+
+    def _run_go_proxy_loglikelihood(
+        self, requests_list
+    ) -> list[tuple[float, bool]]:
+        """Send all requests to the Go scoring proxy in one batch."""
+        items = []
+        for i, req in enumerate(requests_list):
+            context, continuation = req.args
+            items.append({
+                "index": i,
+                "context": context,
+                "continuation": continuation,
+            })
+
+        payload = {
+            "items": items,
+            "config": {
+                "model": self.model,
+                "seed": self.seed,
+                "top_logprobs": self.top_logprobs_k,
+                "max_score_tokens": self._max_score_tokens,
+                "scoring_mode": self.scoring_mode,
+            },
+        }
+
+        go_url = getattr(self, "go_proxy_url", "http://localhost:9090")
+        resp = self.session.post(
+            f"{go_url}/score",
+            json=payload,
+            timeout=600,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+
+        results_by_idx = {r["index"]: r for r in data["results"]}
+        log.info(
+            "Go proxy scored %d items in %.1fs",
+            len(items), data.get("elapsed_sec", 0),
+        )
+        return [
+            (results_by_idx[i]["logprob"], results_by_idx[i]["is_greedy"])
+            for i in range(len(requests_list))
+        ]
+
+    # ------------------------------------------------------------------
     # loglikelihood  (context, continuation) → (logprob, is_greedy)
     # ------------------------------------------------------------------
 
     def loglikelihood(self, requests_list) -> list[tuple[float, bool]]:
+        if self.parallel_choices == "go":
+            return self._run_go_proxy_loglikelihood(requests_list)
         if self.parallel_choices:
             return self._run_parallel_loglikelihood(requests_list)
 

@@ -1,10 +1,11 @@
-"""Benchmark sequential vs parallel choice scoring on HellaSwag.
+"""Benchmark sequential vs parallel vs Go-proxy scoring on HellaSwag.
 
-Runs a small HellaSwag eval (--limit questions, default 10) in both modes
+Runs a small HellaSwag eval (--limit questions, default 10) in each mode
 and reports wall time, accuracy, and speedup factor.
 
 Usage:
     python perf/bench_parallel.py --limit 10
+    python perf/bench_parallel.py --limit 10 --modes sequential go
 """
 
 import argparse
@@ -12,23 +13,68 @@ import json
 import time
 import sys
 import os
+import subprocess
+import signal
+import requests as req_lib
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import lm_eval
 from eval_runner.model import OllamaEvalModel
 
+SCORER_BIN = os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "scorer", "scorer"
+)
 
-def run_eval(parallel: bool, limit: int, seed: int = 42) -> dict:
-    mode_label = "parallel" if parallel else "sequential"
+
+def start_go_proxy():
+    """Start the Go scoring proxy and wait for it to be healthy."""
+    if not os.path.exists(SCORER_BIN):
+        print("  Building Go scorer...")
+        subprocess.run(
+            ["go", "build", "-o", "scorer", "."],
+            cwd=os.path.dirname(SCORER_BIN),
+            check=True,
+        )
+    proc = subprocess.Popen(
+        [SCORER_BIN],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+    )
+    for _ in range(30):
+        time.sleep(0.5)
+        try:
+            r = req_lib.get("http://localhost:9090/health", timeout=2)
+            if r.status_code == 200:
+                print("  Go proxy is ready (pid=%d)" % proc.pid)
+                return proc
+        except Exception:
+            pass
+    proc.kill()
+    raise RuntimeError("Go proxy failed to start")
+
+
+def stop_go_proxy(proc):
+    if proc and proc.poll() is None:
+        proc.send_signal(signal.SIGTERM)
+        proc.wait(timeout=5)
+
+
+def run_eval(mode: str, limit: int, seed: int = 42) -> dict:
     print(f"\n{'='*60}")
-    print(f"  Running {mode_label} mode  (limit={limit})")
+    print(f"  Running {mode} mode  (limit={limit})")
     print(f"{'='*60}\n")
+
+    parallel_flag = False
+    if mode == "parallel":
+        parallel_flag = True
+    elif mode == "go":
+        parallel_flag = "go"
 
     lm = OllamaEvalModel(
         seed=seed,
         scoring_mode="soft_floor",
-        parallel_choices=parallel,
+        parallel_choices=parallel_flag,
     )
 
     t0 = time.time()
@@ -49,7 +95,7 @@ def run_eval(parallel: bool, limit: int, seed: int = 42) -> dict:
     acc_norm = task_results.get("acc_norm,none", 0)
 
     return {
-        "mode": mode_label,
+        "mode": mode,
         "limit": limit,
         "acc": acc,
         "acc_norm": acc_norm,
@@ -62,15 +108,27 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--limit", type=int, default=10)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument(
+        "--modes", nargs="+",
+        default=["sequential", "parallel", "go"],
+        choices=["sequential", "parallel", "go"],
+    )
     args = parser.parse_args()
 
-    seq_result = run_eval(parallel=False, limit=args.limit, seed=args.seed)
+    all_results = {}
+    go_proc = None
 
-    OllamaEvalModel._gen1_cache = {}
+    for mode in args.modes:
+        if mode == "go" and go_proc is None:
+            go_proc = start_go_proxy()
 
-    par_result = run_eval(parallel=True, limit=args.limit, seed=args.seed)
+        result = run_eval(mode, args.limit, args.seed)
+        all_results[mode] = result
 
-    speedup = seq_result["elapsed_sec"] / par_result["elapsed_sec"] if par_result["elapsed_sec"] > 0 else 0
+    if go_proc:
+        stop_go_proxy(go_proc)
+
+    baseline_time = all_results.get("sequential", {}).get("elapsed_sec", 1)
 
     print(f"\n{'='*60}")
     print("  BENCHMARK RESULTS")
@@ -78,22 +136,27 @@ def main():
     print(f"  Questions: {args.limit}")
     print(f"  Loglikelihood calls: {args.limit * 4}")
     print()
-    print(f"  Sequential:  {seq_result['elapsed_sec']}s  "
-          f"({seq_result['avg_sec_per_question']}s/q)  "
-          f"acc_norm={seq_result['acc_norm']}")
-    print(f"  Parallel:    {par_result['elapsed_sec']}s  "
-          f"({par_result['avg_sec_per_question']}s/q)  "
-          f"acc_norm={par_result['acc_norm']}")
-    print(f"  Speedup:     {speedup:.2f}×")
-    print(f"  Accuracy match: {seq_result['acc_norm'] == par_result['acc_norm']}")
+    for mode, r in all_results.items():
+        speedup = baseline_time / r["elapsed_sec"] if r["elapsed_sec"] > 0 else 0
+        tag = "" if mode == "sequential" else f"  speedup={speedup:.2f}×"
+        print(f"  {mode:12s}: {r['elapsed_sec']:7.1f}s  "
+              f"({r['avg_sec_per_question']}s/q)  "
+              f"acc_norm={r['acc_norm']}{tag}")
+
+    accs = [r["acc_norm"] for r in all_results.values()]
+    print(f"\n  Accuracy match: {len(set(accs)) == 1}")
     print(f"{'='*60}\n")
 
     report = {
-        "sequential": seq_result,
-        "parallel": par_result,
-        "speedup": round(speedup, 2),
-        "accuracy_match": seq_result["acc_norm"] == par_result["acc_norm"],
+        "modes": all_results,
+        "baseline_mode": "sequential",
     }
+    if "sequential" in all_results:
+        for mode, r in all_results.items():
+            if mode != "sequential":
+                report[f"speedup_{mode}"] = round(
+                    baseline_time / r["elapsed_sec"], 2
+                ) if r["elapsed_sec"] > 0 else 0
 
     out_path = os.path.join("perf", "bench_parallel_results.json")
     with open(out_path, "w") as f:

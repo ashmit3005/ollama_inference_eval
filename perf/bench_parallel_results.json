@@ -1,20 +1,22 @@
 {
-  "sequential": {
-    "mode": "sequential",
-    "limit": 10,
-    "acc": 0.4,
-    "acc_norm": 0.6,
-    "elapsed_sec": 100.3,
-    "avg_sec_per_question": 10.03
+  "modes": {
+    "sequential": {
+      "mode": "sequential",
+      "limit": 10,
+      "acc": 0.4,
+      "acc_norm": 0.6,
+      "elapsed_sec": 95.1,
+      "avg_sec_per_question": 9.51
+    },
+    "go": {
+      "mode": "go",
+      "limit": 10,
+      "acc": 0.4,
+      "acc_norm": 0.6,
+      "elapsed_sec": 81.1,
+      "avg_sec_per_question": 8.11
+    }
   },
-  "parallel": {
-    "mode": "parallel",
-    "limit": 10,
-    "acc": 0.4,
-    "acc_norm": 0.6,
-    "elapsed_sec": 83.5,
-    "avg_sec_per_question": 8.35
-  },
-  "speedup": 1.2,
-  "accuracy_match": true
+  "baseline_mode": "sequential",
+  "speedup_go": 1.17
 }
