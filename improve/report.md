@@ -165,66 +165,80 @@ margin of error.
 | **Total lift** | **+29.0 pp** | |
 | **Lift from few-shot alone** | **+4.0 pp** | **(exceeds +3.0 target)** |
 
+### Statistical Significance
+
+McNemar's test on baseline vs 5-shot semantic (n=100):
+- Wrong→Right flips: 9 | Right→Wrong flips: 5
+- χ² = 1.14, **p = 0.285**
+- Not significant at p < 0.05 (expected: n=100 is underpowered for a 4 pp
+  effect; would need n≈400 for 80% power at this effect size)
+
+The +4.0 pp lift is real and reproducible (deterministic seed), but the
+sample size cannot rule out variance.  The CIs overlap.
+
 ## Before/After Examples
 
-9 examples from the baseline vs 10-shot semantic comparison where
-baseline predicted incorrectly but the improved config predicted correctly.
-(The 5-shot comparison is being generated; these examples illustrate the
-general pattern of how semantic context helps.)
+9 examples from the baseline vs **5-shot semantic** comparison where
+the improved config flipped an incorrect baseline prediction to correct.
 
 **Example 1** (idx=0) — Roof shingle removal
 - Query: "A man is sitting on a roof. He ___"
 - Gold: "starts pulling up roofing on a roof."
-- Baseline predicted: "is holding a rubik's cube." (logprobs: -40.5)
-- Improved: correct (logprobs: -38.3)
+- Baseline predicted: "is holding a rubik's cube." (norm logprob: -40.5)
+- 5-shot semantic: correct (norm logprob: -37.6)
 - Semantic context about roofing primed the model toward construction-related
   continuations.
 
 **Example 2** (idx=15) — Playing water polo
 - Query: "Two people are seen passing a ball..."
 - Gold: "demonstrates how to properly throw the ball..."
-- Baseline predicted: "then throws the ball into the pool..."
-- Improved: correct (logprobs: -72.5 vs baseline -142.2)
+- Baseline predicted: "then throws the ball into the pool..." (-142.2)
+- 5-shot semantic: correct (-72.8)
 - Few-shot sports context dramatically improved logprob for the instructional
   continuation.
 
 **Example 3** (idx=21) — Cutting the grass
 - Query: "He is using commercial lawn mowing equipment."
 - Gold: "walks back and forth as he mows the grass."
-- Baseline: [3] "runs from one side to the other." (near-tie: -47.8)
-- Improved: [0] correct (-17.2, decisive)
+- Baseline: [3] "runs from one side to the other." (near-tie: -47.8 vs -47.8)
+- 5-shot semantic: [0] correct (-17.6, decisive)
 - Baseline was nearly tied; few-shot context broke the tie toward mowing.
 
-**Example 4** (idx=60) — Kayaking
-- Gold: "demonstrates tricks..."
-- Baseline: "holds a fish..." | Improved: correct (-43.7, clear margin)
+**Example 4** (idx=63) — Playing harmonica
+- Gold: "finishes playing and remains seated."
+- Baseline: "plays in a house..." (-65.6) | 5-shot: correct (-51.4)
+- Context about music performances narrowed the model toward the seated ending.
 
-**Example 5** (idx=68) — Washing face
-- Gold: "continues to rub water..."
-- Baseline: incorrect (logprobs -91.3) | Improved: correct but close
+**Example 5** (idx=64) — Cleaning windows
+- Gold: "goes up and down the windows at a rapid pace..."
+- Baseline: "puts water on a hose..." (-52.6) | 5-shot: correct (-110.9)
+- Window cleaning few-shot examples nudged the scoring toward the filming
+  continuation, though the margin was tighter.
 
-**Example 6** (idx=69) — Hitting a pinata
+**Example 6** (idx=68) — Washing face
+- Gold: "continues to rub water all over his face..."
+- Baseline: "then begins washing the other child..." (-91.2)
+- 5-shot semantic: correct (-118.6, tight but enough for length-norm win)
+
+**Example 7** (idx=69) — Hitting a pinata
 - Gold: "is lifted and the boy begins swinging..."
-- Baseline: "pops, and a child..." | Improved: correct (-54.3)
-
-**Example 7** (idx=73) — Making a lemonade
-- Gold: "starts mixing the ingredients together."
-- Baseline: "is mixing the ingredients in an iron." (-25.8)
-- Improved: correct (-11.5, very clear)
-- Both favor "mixing" but few-shot disambiguated the correct phrasing.
+- Baseline: "pops, and a child..." (-112.6) | 5-shot: correct (-54.7)
+- Pinata activity examples helped the model pick the swinging action.
 
 **Example 8** (idx=92) — Rollerblading
 - Gold: "explains the skates movement..."
-- Baseline: "puts lotion..." | Improved: correct
+- Baseline: "puts lotion..." (-169.0) | 5-shot: correct (-156.8)
+- Sports/skating few-shot primed the model toward skating-related answers.
 
 **Example 9** (idx=97) — Sharpening knives
 - Gold: "grabs a second knife and puts it in the appliance."
 - Baseline: "demonstrates how to sharpen..." (-229.9 vs gold -83.5)
-- Improved: correct (-64.6)
+- 5-shot semantic: correct (-80.7)
+- Multiple knife-sharpening examples in few-shot provided decisive context.
 
-**Note**: 8 questions also flipped right→wrong in the 10-shot comparison,
-indicating that few-shot can hurt on some samples.  The 5-shot config has
-a net positive effect because it introduces less noise.
+**Note**: 5 questions also flipped right→wrong with 5-shot, indicating that
+few-shot can hurt on some samples.  The net +4 (9 gained - 5 lost) is
+the observed lift.
 
 ## Cost and Latency Trade-offs
 

@@ -2208,7 +2208,7 @@
       "activity": "Layup drill in basketball"
     }
   ],
-  "elapsed_sec": 2510.7,
+  "elapsed_sec": 1103.9,
   "limit": 100,
   "num_fewshot": 0,
   "task_name": "hellaswag",

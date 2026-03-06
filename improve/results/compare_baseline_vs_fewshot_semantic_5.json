@@ -1,0 +1,355 @@
+{
+  "baseline": {
+    "config": "baseline",
+    "acc": 0.61,
+    "ci_95": [
+      0.51,
+      0.7
+    ],
+    "n": 100,
+    "elapsed_sec": 1103.9
+  },
+  "improved": {
+    "config": "fewshot_semantic_5",
+    "acc": 0.65,
+    "ci_95": [
+      0.55,
+      0.74
+    ],
+    "n": 100,
+    "elapsed_sec": 1130.7
+  },
+  "lift": 0.04,
+  "lift_pct": 4.0,
+  "mcnemar": {
+    "b_right_to_wrong": 5,
+    "c_wrong_to_right": 9,
+    "chi2": 1.1429,
+    "p_value": 0.285049,
+    "significant": "False"
+  },
+  "flipped_examples": [
+    {
+      "idx": 0,
+      "query": "Roof shingle removal: A man is sitting on a roof. He",
+      "choices": [
+        "is using wrap to wrap a pair of skis.",
+        "is ripping level tiles off.",
+        "is holding a rubik's cube.",
+        "starts pulling up roofing on a roof."
+      ],
+      "gold": 3,
+      "baseline_pred": 2,
+      "improved_pred": 3,
+      "baseline_logprobs": [
+        -102.0399,
+        -54.8072,
+        -40.4503,
+        -84.2075
+      ],
+      "improved_logprobs": [
+        -96.6802,
+        -82.553,
+        -42.4628,
+        -37.5574
+      ],
+      "activity": "Roof shingle removal"
+    },
+    {
+      "idx": 15,
+      "query": "Playing water polo: Two people are seen passing a ball back and fourth in a pool and leads into one speaking to the camera. The man",
+      "choices": [
+        "dips the ball and walks back with the boy and pours detergent into a cup again.",
+        "then throws the ball into the pool and begins running around with a sail in his hand while a group of men watch.",
+        "then takes a drink having a conversation with another man and another man leads into him throwing balls in the water and laughing to the camera.",
+        "demonstrates how to properly throw the ball with his hands while still speaking to the camera."
+      ],
+      "gold": 3,
+      "baseline_pred": 1,
+      "improved_pred": 3,
+      "baseline_logprobs": [
+        -226.9652,
+        -142.1864,
+        -215.9033,
+        -135.2336
+      ],
+      "improved_logprobs": [
+        -201.3667,
+        -141.3814,
+        -172.6118,
+        -72.7977
+      ],
+      "activity": "Playing water polo"
+    },
+    {
+      "idx": 21,
+      "query": "Cutting the grass: A man is outside of a building. He is using commercial lawn mowing equipment. He",
+      "choices": [
+        "walks back and forth as he mows the grass.",
+        "is animated as he does the task.",
+        "relaxes, making sure his lawn is pristine.",
+        "runs from one side of the building to the other."
+      ],
+      "gold": 0,
+      "baseline_pred": 3,
+      "improved_pred": 0,
+      "baseline_logprobs": [
+        -47.7605,
+        -53.166,
+        -138.8456,
+        -47.836
+      ],
+      "improved_logprobs": [
+        -17.5863,
+        -50.9876,
+        -124.5162,
+        -70.5768
+      ],
+      "activity": "Cutting the grass"
+    },
+    {
+      "idx": 63,
+      "query": "Playing harmonica: The woman sees the harmonica playing man in the distance. She watches him and listens to him playing. She walks away leaving the man. The man",
+      "choices": [
+        "takes out a wall show from his guitar.",
+        "finishes playing and remains seated.",
+        "jumps over a barrier and lands on the sandy beach.",
+        "plays in a house while the woman looks on."
+      ],
+      "gold": 1,
+      "baseline_pred": 3,
+      "improved_pred": 1,
+      "baseline_logprobs": [
+        -111.0515,
+        -74.3738,
+        -109.7314,
+        -65.6382
+      ],
+      "improved_logprobs": [
+        -108.1174,
+        -51.4441,
+        -113.5749,
+        -64.7517
+      ],
+      "activity": "Playing harmonica"
+    },
+    {
+      "idx": 64,
+      "query": "Cleaning windows: A person is shown looking around a city and begins washing windows with his tools. He",
+      "choices": [
+        "then brushes right through the window and cleans it off.",
+        "uses a large block cutter to remove smaller blocks until he has the whole of the window covered.",
+        "puts water on a hose and begins cleaning the windows.",
+        "goes up and down the windows at a rapid pace and continues filming himself through the glass."
+      ],
+      "gold": 3,
+      "baseline_pred": 2,
+      "improved_pred": 3,
+      "baseline_logprobs": [
+        -81.3805,
+        -244.5394,
+        -52.6316,
+        -150.725
+      ],
+      "improved_logprobs": [
+        -80.2161,
+        -250.0077,
+        -77.4737,
+        -110.9189
+      ],
+      "activity": "Cleaning windows"
+    },
+    {
+      "idx": 68,
+      "query": "Washing face: Two children are seen sitting in a tub rubbing their faces and another person's hands interacting. The boy",
+      "choices": [
+        "continues to rub water all over his face as well as play with toys and smile at the cameraman.",
+        "walks out of the bathroom laughing to the camera and the girl stands up to rinse her face off.",
+        "then begins washing the other child and ends by copulating with him.",
+        "is now seen pointing down by himself and leads into him holding a comb and blow dryer and speaking to others."
+      ],
+      "gold": 0,
+      "baseline_pred": 2,
+      "improved_pred": 0,
+      "baseline_logprobs": [
+        -169.8484,
+        -141.6581,
+        -91.2486,
+        -291.8099
+      ],
+      "improved_logprobs": [
+        -118.55,
+        -130.8582,
+        -109.205,
+        -273.62
+      ],
+      "activity": "Washing face"
+    },
+    {
+      "idx": 69,
+      "query": "Hitting a pinata: A woman hands a young boy a stick with a little girl grabbing for her attention. The pinata",
+      "choices": [
+        "is lifted and the boy begins swinging at the object.",
+        "pops, and a child in white attempts to hit the pinata, but fails.",
+        "pops out of the playground.",
+        "is hit one after the other, and the girl lets go her hold."
+      ],
+      "gold": 0,
+      "baseline_pred": 1,
+      "improved_pred": 0,
+      "baseline_logprobs": [
+        -92.3697,
+        -112.6433,
+        -83.6156,
+        -123.4711
+      ],
+      "improved_logprobs": [
+        -54.6908,
+        -95.3662,
+        -81.7606,
+        -72.1775
+      ],
+      "activity": "Hitting a pinata"
+    },
+    {
+      "idx": 92,
+      "query": "Rollerblading: A pilates instructor on skates explains how to strap your risk protectors tight and shows that you need knee pads to protect your knees. The lady",
+      "choices": [
+        "starts with two small straps and it puts her into a squatting position with feet fully placed over her knee and her hands suspended and ready.",
+        "then explains the skates movement and how to use the breaks that is in the back of the skates.",
+        "then puts lotion in both of her hands and rubs them along your knees while the instructor washes them.",
+        "shows how to harness and strap your weight on properly and she moves away from the mounting as she reaches for her left knee."
+      ],
+      "gold": 1,
+      "baseline_pred": 2,
+      "improved_pred": 1,
+      "baseline_logprobs": [
+        -268.6539,
+        -166.5156,
+        -169.0021,
+        -255.5872
+      ],
+      "improved_logprobs": [
+        -276.6946,
+        -156.8172,
+        -190.3987,
+        -249.2507
+      ],
+      "activity": "Rollerblading"
+    },
+    {
+      "idx": 97,
+      "query": "Sharpening knives: She picks the knife back up and places it in the appliance and slowly draws it back several times. She slices a tomato on a wood block with the knife. She",
+      "choices": [
+        "decorates the knife with green and red maracas.",
+        "positions the knife front and back and finishes by pushing it straight across the square board.",
+        "then demonstrates how to sharpen the knife and finishes by putting a metal rod in front of the plate of spaghetti that she just sharpened.",
+        "grabs a second knife and puts it in the appliance."
+      ],
+      "gold": 3,
+      "baseline_pred": 2,
+      "improved_pred": 3,
+      "baseline_logprobs": [
+        -112.9768,
+        -246.3885,
+        -229.8975,
+        -83.4672
+      ],
+      "improved_logprobs": [
+        -79.9006,
+        -228.2449,
+        -223.271,
+        -80.7239
+      ],
+      "activity": "Sharpening knives"
+    }
+  ],
+  "confidence_calibration": {
+    "baseline": {
+      "all_temperatures": {
+        "0.5": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "0.7": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "0.8": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "0.9": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "1.0": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "1.1": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "1.2": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "1.5": {
+          "acc_norm": 0.61,
+          "n": 100
+        },
+        "2.0": {
+          "acc_norm": 0.61,
+          "n": 100
+        }
+      },
+      "best_temperature": 0.5,
+      "best_acc_norm": 0.61,
+      "baseline_acc_norm": 0.61
+    },
+    "improved": {
+      "all_temperatures": {
+        "0.5": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "0.7": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "0.8": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "0.9": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "1.0": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "1.1": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "1.2": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "1.5": {
+          "acc_norm": 0.65,
+          "n": 100
+        },
+        "2.0": {
+          "acc_norm": 0.65,
+          "n": 100
+        }
+      },
+      "best_temperature": 0.5,
+      "best_acc_norm": 0.65,
+      "baseline_acc_norm": 0.65
+    }
+  }
+}
